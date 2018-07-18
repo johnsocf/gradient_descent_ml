@@ -27,9 +27,14 @@ void init_2d_matrix(int arg[], int length);
 void init_3d_matrix(int arg[], int length);
 
 // set up supervised learning processes
+int scale_data(int arg[]);
 void shuffle_data(int arg[]);
 void build_training_set(int arg[]);
 void build_test_set(int arg[]);
+
+// matrix functions
+void multiple_matrices(int arg[], int arg[]);
+void add_matrices(int arg[], int arg[]);
 
 // initialize supervised learning algorithm
 void initialize_gradient_descent(int arg[]);
@@ -97,6 +102,11 @@ void build_training_set(int arg[]) {
 }
 void build_test_set(int arg[]) {
     // this will be 25% of test data;
+}
+
+void scale_data(int arg[]) {
+    // utilize feature scaling to arrive at best contoured data for regression.
+    // utilizes matrix mult.
 }
 
 // init
@@ -182,6 +192,7 @@ void gradient_descent_multi_feat(int arg[]) {
 }
 
 void gradient_descent_min_cost_multi_feat(int arg[]) {
+    // toDo: define loop more clearly with stopping point when Oj == Oj. or when Oj == 0.
     // note xj^(i) is ith term jth attr.
     // for each j where j=0, ... j = n
     // Oj = Oj - learning_rate * (1/m) sum of for each (hO(x^(i))-y^(i))xj^(i)
