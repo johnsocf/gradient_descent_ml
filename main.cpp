@@ -136,7 +136,6 @@ void import_data() {
 }
 
 void print_matrix(vector< vector<string> > array) {
-    cout << "print \n";
     for (auto& row:array) {
         for (auto& val:row)
             cout << val << " ";
