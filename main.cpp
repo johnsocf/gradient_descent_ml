@@ -1,5 +1,15 @@
 #include <iostream>
+#include <iomanip>
+#include <array>
+#include <fstream>
+#include <sstream>
+#include <string>
+#include <vector>
+
 using namespace std;
+
+int rowA = 0;
+int colA = 0;
 
 // determines size of steps in each iteration of gradient descent
 #define learning_rate .0001;
@@ -17,9 +27,11 @@ int my_main();
 // m = number of training examples
 // x's = input variables/ features
 // y's = output variable/ target variable
+// capital X = matrix.  (caps designate matrix)
 
-// import data
+// import data and helpers
 void import_data();
+void print_matrix();
 
 // initialize structures
 void init_vector(int arg[], int length);
@@ -27,14 +39,15 @@ void init_2d_matrix(int arg[], int length);
 void init_3d_matrix(int arg[], int length);
 
 // set up supervised learning processes
-int scale_data(int arg[]);
+void scale_data(int arg[]);
 void shuffle_data(int arg[]);
 void build_training_set(int arg[]);
 void build_test_set(int arg[]);
 
 // matrix functions
-void multiple_matrices(int arg[], int arg[]);
-void add_matrices(int arg[], int arg[]);
+int training_example_length(int y[]);
+void multiple_matrices(int X[], int X2[]);
+void add_matrices(int X[], int X2[]);
 
 // initialize supervised learning algorithm
 void initialize_gradient_descent(int arg[]);
@@ -75,6 +88,11 @@ void runThisFunction(int arg[]);
 int my_main() {
     std::cout << "Hello, World!" << std::endl;
     runThisFunction(something);
+    int this_array[5] = {3, 4, 5, 6, 7};
+    int m = training_example_length(this_array);
+
+    import_data();
+
     return 0;
 }
 
@@ -87,9 +105,48 @@ void runThisFunction(int arg[]) {
 }
 
 void import_data() {
+
+    ifstream inFile;
+    inFile.open("bike-sharing-dataset.csv");
+    if (!inFile.is_open()) {
+        cout << "open file failed \n";
+    } else {
+        cout << "file opened \n";
+    }
+
+    string line, val;
+    vector< vector<string> > array;
+    vector<string> v;
+
+    while (getline(inFile, line)) {
+        vector<string> v;
+        stringstream s (line);
+        while (getline (s, val, ','))
+            //cout << "print val: " << val << "\n";
+            v.push_back(val);
+            //cout << "pushed back \n";
+        array.push_back(v);
+    }
+
+    for (auto& row:array) {
+        for (auto& val:row)
+                cout << val << " ";
+        cout << "\n";
+    }
+
     // import data via csv.
     // build matrix
     // build test sets
+}
+
+void print_matrix() {
+
+}
+
+// define variables
+int training_example_length(int y[]) {
+    //return length(y);
+    return 0;
 }
 
 // creating testing sets
