@@ -31,7 +31,7 @@ int my_main();
 
 // import data and helpers
 void import_data();
-void print_matrix();
+void print_matrix(vector< vector<string> > array);
 
 // initialize structures
 void init_vector(int arg[], int length);
@@ -128,19 +128,19 @@ void import_data() {
         array.push_back(v);
     }
 
-    for (auto& row:array) {
-        for (auto& val:row)
-                cout << val << " ";
-        cout << "\n";
-    }
+    print_matrix(array);
 
     // import data via csv.
     // build matrix
     // build test sets
 }
 
-void print_matrix() {
-
+void print_matrix(vector< vector<string> > array) {
+    for (auto& row:array) {
+        for (auto& val:row)
+            cout << val << " ";
+        cout << "\n";
+    }
 }
 
 // define variables
