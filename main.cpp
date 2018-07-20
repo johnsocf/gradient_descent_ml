@@ -266,6 +266,8 @@ vector<double>  hypothesis_linear_regression(vector<double> param_vector, vector
         // we get to multi variate
         hypothesis[i] += (param_vector[i] * data_vector[0][i]);
     }
+
+
     return hypothesis;
 }
 
@@ -302,18 +304,29 @@ void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_colu
     //toDo: add in next;
     int sum = 0;
     int m = total_matrix[0].size();
+    cout << "m : " << m << "\n";
     vector<double> new_cost_vector;
     vector<double> hypothesis_vector = hypothesis_linear_regression(cost_vector, total_matrix);
 
-    
+    vector< vector<double> >::iterator row;
+    vector<double>::iterator col;
+    for (row = data_matrix.begin(); row != data_matrix.end(); row++) {
+        // first row.
+        for (col = row->begin(); col != row->end(); col++) {
 
-    for (int i=0; i<=data_matrix.size(); i++) {
-        sum += (hypothesis_vector[i] - y_vector[i]);
-        for (int j=0; i<=data_matrix[i].size(); i++) {
-            new_cost_vector[j] = (1/m) * sum;
+            // do stuff ...
         }
-        sum = 0;
     }
+
+//    for (int i=0; i<=data_matrix.size(); i++) {
+//        sum += (hypothesis_vector[i] - y_vector[i]);
+//        for (int j=0; i<=data_matrix[i].size(); i++) {
+//            new_cost_vector[j] = (1/m) * sum;
+//        }
+//        sum = 0;
+//    }
+//
+
 
     // if each cost isn't at 0....
     // call recursively
