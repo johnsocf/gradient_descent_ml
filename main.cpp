@@ -58,7 +58,7 @@ void add_matrices(int X[], int X2[]);
 vector<double> initialize_gradient_descent(int initial_values, int param_length);
 
 // ml algorithms
-vector<double>  hypothesis_linear_regression(vector<double> param_vector, vector< vector<double> > data_vector);
+vector<double>  hypothesis_linear_regression(vector<double> param_vector, vector< vector<double> > data_matrix);
 void gradient_descent(int arg[]);
 void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_column, vector<double> cost_vector);
 
@@ -168,17 +168,18 @@ vector< vector<double> > get_matrix_input_data(vector<vector <double> > array, i
         vector<double>::iterator it;
         it = array[i].begin();
         // add identity row to first
-        array[i].insert(it, 1);
+
 
         // remove output row.
         array[i].erase(array[i].begin() + 1);
+        array[i].insert(it, 1);
         //cout << "print val: " <<  array[i][1] << "\n";
     };
 
     // add identity
 
 
-    print_matrix(array);
+    //print_matrix(array);
     return array;
 }
 
@@ -196,7 +197,7 @@ vector<double> get_vector_slice(vector<vector <double> > array, int column) {
         //cout << "print val: " <<  array[i][1] << "\n";
     };
 
-    print_matrix(array);
+    //print_matrix(array);
     return result;
 }
 
@@ -255,17 +256,44 @@ vector<double> initialize_gradient_descent(int initial_values, int param_length)
 }
 
 // algorithms
-vector<double>  hypothesis_linear_regression(vector<double> param_vector, vector< vector<double> > data_vector) {
+vector<double>  hypothesis_linear_regression(vector<double> param_vector, vector< vector<double> > data_matrix) {
     // return hypothesis based on linear regression formula
     // hO(x) = O0 + O1x;
     //return O0 + O1 * x;
 
     vector<double> hypothesis;
-    for (int i=0; i<param_vector.size(); i++) {
-        // toDo: data_vector[0] is temp because we're passing in a matrix but accessing a simple vector untill
-        // we get to multi variate
-        hypothesis[i] += (param_vector[i] * data_vector[0][i]);
+
+    // for each row in data vector... use eq.
+    // data times param. at i.
+
+    int m = data_matrix.size();
+    int c_s = 0;
+    if (data_matrix.size()!=0) {
+        c_s = data_matrix[0].size();
     }
+
+    //cout << " row length: " << m << "\n";
+    //cout << " parameter length: " << c_s << "\n";
+
+    double hyp = 0;
+    for (int row=0; row < m; row++) {
+         //first row.
+        for (int column=0; column < c_s; column++) {
+            cout << "input param" << row << " params: " << param_vector[row] << " ";
+            cout << "each in each row:" << row << " data for params: " << data_matrix[row][column] << "\n";
+            hyp += param_vector[row] * data_matrix[row][column];
+             //do stuff ...
+        }
+        hypothesis.push_back(hyp);
+    }
+
+    print_vector(hypothesis);
+
+//    for (int i=0; i<param_vector.size(); i++) {
+//        // toDo: data_vector[0] is temp because we're passing in a matrix but accessing a simple vector untill
+//        // we get to multi variate
+//        hypothesis[i] += (param_vector[i] * data_matrix[0][i]);
+//    }
 
 
     return hypothesis;
@@ -306,17 +334,17 @@ void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_colu
     int m = total_matrix[0].size();
     cout << "m : " << m << "\n";
     vector<double> new_cost_vector;
-    vector<double> hypothesis_vector = hypothesis_linear_regression(cost_vector, total_matrix);
+    vector<double> hypothesis_vector = hypothesis_linear_regression(cost_vector, data_matrix);
 
-    vector< vector<double> >::iterator row;
-    vector<double>::iterator col;
-    for (row = data_matrix.begin(); row != data_matrix.end(); row++) {
-        // first row.
-        for (col = row->begin(); col != row->end(); col++) {
-
-            // do stuff ...
-        }
-    }
+//    for (int row=0; row< data_matrix.size(); row++) {
+//        // first row.
+//
+//        for (int column=0; row< data_matrix[0].size(); column++) {
+//            cout << "each in each row:" << data_matrix[row][column] << "\n";
+//            //cout << "colum stuff: " << col
+//            // do stuff ...
+//        }
+//    }
 
 //    for (int i=0; i<=data_matrix.size(); i++) {
 //        sum += (hypothesis_vector[i] - y_vector[i]);
