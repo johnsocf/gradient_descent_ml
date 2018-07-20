@@ -55,12 +55,12 @@ void multiple_matrices(int X[], int X2[]);
 void add_matrices(int X[], int X2[]);
 
 // initialize supervised learning algorithm
-void initialize_gradient_descent(int arg[]);
+vector<double> initialize_gradient_descent(int initial_values, int param_length);
 
 // ml algorithms
-int hypothesis_linear_regression(int arg[]);
+vector<double>  hypothesis_linear_regression(vector<double> param_vector, vector< vector<double> > data_vector);
 void gradient_descent(int arg[]);
-void gradient_descent_min_cost(int arg[]);
+void gradient_descent_min_cost(vector<vector<double>> total_matrix, int y_column, vector<double> cost_vector);
 
 // ml algorithms multi features (takes matrix data, not just vectors)
 
@@ -116,10 +116,12 @@ void import_data() {
     // column to extract y vector
     int y_column = 1;
     vector< vector<double> > simple_matrix = build_matrix("temp_x_rental_num_y_simple.csv");
-    vector<double> y_vector = get_vector_slice(simple_matrix, y_column);
-    vector< vector<double> > data_matrix = get_matrix_input_data(simple_matrix, y_column);
+    vector<double> cost_matrix = initialize_gradient_descent(0, simple_matrix.size());
+    gradient_descent_min_cost(simple_matrix, y_column, cost_matrix);
 
-    print_matrix(data_matrix);
+    //initialize_gradient_descent()
+
+    //print_matrix(data_matrix);
 
     // import data via csv.
     // build matrix
@@ -231,18 +233,30 @@ void scale_data(int arg[]) {
 }
 
 // init
-void initialize_gradient_descent(int arg[]) {
+vector<double> initialize_gradient_descent(int initial_values, int param_length) {
     // initialize gradient descent with starting values for each param
     // initialize params of O0, O1, and all j = params from i to m
     // each param gets initialized to 0
+    vector<double> initial_cost_matrix;
+    for (int i=0; i<param_length; i++) {
+        initial_cost_matrix[i] = initial_values;
+    }
+    return initial_cost_matrix;
 }
 
 // algorithms
-int hypothesis_linear_regression(int arg[]) {
+vector<double>  hypothesis_linear_regression(vector<double> param_vector, vector< vector<double> > data_vector) {
     // return hypothesis based on linear regression formula
     // hO(x) = O0 + O1x;
     //return O0 + O1 * x;
-    // return 0;
+
+    vector<double> hypothesis;
+    for (int i=0; i<param_vector.size(); i++) {
+        // toDo: data_vector[0] is temp because we're passing in a matrix but accessing a simple vector untill
+        // we get to multi variate
+        hypothesis[i] += (param_vector[i] * data_vector[0][i]);
+    }
+    return hypothesis;
 }
 
 void gradient_descent(int arg[]) {
@@ -256,7 +270,7 @@ void gradient_descent(int arg[]) {
     // repeat until convergence
 }
 
-void gradient_descent_min_cost(int arg[]) {
+void gradient_descent_min_cost(vector<vector<double>> total_matrix, int y_column, vector<double> cost_vector) {
     // apply gradient descent to linear regression model to minimize cost function.
     // h = hypothesis
     // J(O0, O1) = (1/2m) * sum of for each i=1 to m: (hO(x^(i))-y^(i))^2
@@ -271,6 +285,13 @@ void gradient_descent_min_cost(int arg[]) {
     // (1/m) * sum of for each i=1 to m: (hO(x^(i))-y^(i)) * x^(i)
 
     // for h0 - utilize hypothesis linear model drawing on linear descent eq;
+
+
+    vector<double> y_vector = get_vector_slice(total_matrix, y_column);
+    vector< vector<double> > data_matrix = get_matrix_input_data(total_matrix, y_column);
+    for (int i=0; i<=data_matrix.size(); i++) {
+        hypothesis_linear_regression(y_column, total_matrix);
+    }
 }
 
 // multi dimensional
