@@ -287,6 +287,10 @@ vector<double>  hypothesis_linear_regression(vector<double> param_vector, vector
         hypothesis.push_back(hyp);
     }
 
+    //given a set of data with an identity row at position 0 for the linear eq.
+    //calculates a hypothesis vector for each row based on multiplying params times data for each column.
+    // vector has a value per row.  calculations are per row.
+
     print_vector(hypothesis);
 
 //    for (int i=0; i<param_vector.size(); i++) {
@@ -334,21 +338,43 @@ void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_colu
     vector<double> hypothesis_vector = hypothesis_linear_regression(cost_vector, data_matrix);
 
     int m = data_matrix.size();
-    int c_s = 0;
-    if (data_matrix.size()!=0) {
-        c_s = data_matrix[0].size();
-    }
+    int c_s = data_matrix[0].size();
 
     double sum = 0;
+
+
     for (int row=0; row < m; row++) {
+
+        double xi = cost_vector[row];
+        if (row==0) {
+            xi = 1;
+        }
+        // need two loops
+        //new_cost_vector[row]  += (hypothesis_vector[row] - y_vector[row]) * xi;
+
+
         //first row.
-        sum += (hypothesis_vector[row] - y_vector[row]);
-        for (int column=0; column < c_s; column++) {
-            //new_cost_vector.push_back()
-            //do stuff ...
+        //sum += (hypothesis_vector[row] - y_vector[row]);
+//            for (int column = 0; column < c_s; column++) {
+//                //new_cost_vector.push_back()
+//                //do stuff ...
+//            }
+    }
+
+    for (int row=0; row < m; row++) {
+        double regression_eq_result;
+        if (row == 0) {
+            regression_eq_result = (1/m) * sum;
+        } else {
+            // data_matrix[row]
+            // xi - not sure what this is for each row but it pertains to the row.
+            // i think it's the prev cost for the row.
+            //regression_eq_result = (1/m) * sum * xi;
         }
 
+        //new_cost_vector.push_back()
     }
+
 
 
 //    for (int row=0; row< data_matrix.size(); row++) {
