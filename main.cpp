@@ -60,7 +60,7 @@ vector<double> initialize_gradient_descent(int initial_values, int param_length)
 // ml algorithms
 vector<double>  hypothesis_linear_regression(vector<double> param_vector, vector< vector<double> > data_vector);
 void gradient_descent(int arg[]);
-void gradient_descent_min_cost(vector<vector<double>> total_matrix, int y_column, vector<double> cost_vector);
+void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_column, vector<double> cost_vector);
 
 // ml algorithms multi features (takes matrix data, not just vectors)
 
@@ -270,7 +270,7 @@ void gradient_descent(int arg[]) {
     // repeat until convergence
 }
 
-void gradient_descent_min_cost(vector<vector<double>> total_matrix, int y_column, vector<double> cost_vector) {
+void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_column, vector<double> cost_vector) {
     // apply gradient descent to linear regression model to minimize cost function.
     // h = hypothesis
     // J(O0, O1) = (1/2m) * sum of for each i=1 to m: (hO(x^(i))-y^(i))^2
@@ -286,12 +286,28 @@ void gradient_descent_min_cost(vector<vector<double>> total_matrix, int y_column
 
     // for h0 - utilize hypothesis linear model drawing on linear descent eq;
 
-
     vector<double> y_vector = get_vector_slice(total_matrix, y_column);
     vector< vector<double> > data_matrix = get_matrix_input_data(total_matrix, y_column);
+
+
+    int sum = 0;
+    int m = total_matrix[0].size();
+    vector<double> new_cost_vector;
+    vector<double> hypothesis_vector = hypothesis_linear_regression(cost_vector, total_matrix);
+
+
     for (int i=0; i<=data_matrix.size(); i++) {
-        hypothesis_linear_regression(y_column, total_matrix);
+        sum += (hypothesis_vector[i] - y_vector[i]);
+        for (int j=0; i<=data_matrix[i].size(); i++) {
+            new_cost_vector[j] = (1/m) * sum;
+        }
+        sum = 0;
     }
+
+    // if each cost isn't at 0....
+    // call recursively
+    //gradient_descent_min_cost(total_matrix, y_column, new_cost_vector);
+
 }
 
 // multi dimensional
