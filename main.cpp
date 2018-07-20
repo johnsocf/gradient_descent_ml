@@ -330,11 +330,26 @@ void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_colu
     vector< vector<double> > data_matrix = get_matrix_input_data(total_matrix, y_column);
 
     //toDo: add in next;
-    int sum = 0;
-    int m = total_matrix[0].size();
-    cout << "m : " << m << "\n";
     vector<double> new_cost_vector;
     vector<double> hypothesis_vector = hypothesis_linear_regression(cost_vector, data_matrix);
+
+    int m = data_matrix.size();
+    int c_s = 0;
+    if (data_matrix.size()!=0) {
+        c_s = data_matrix[0].size();
+    }
+
+    double sum = 0;
+    for (int row=0; row < m; row++) {
+        //first row.
+        sum += (hypothesis_vector[row] - y_vector[row]);
+        for (int column=0; column < c_s; column++) {
+            //new_cost_vector.push_back()
+            //do stuff ...
+        }
+
+    }
+
 
 //    for (int row=0; row< data_matrix.size(); row++) {
 //        // first row.

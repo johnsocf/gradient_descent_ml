@@ -12,7 +12,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1928409-053f-4c51-85a5-799e2a062a51" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/main" beforeDir="false" afterPath="$PROJECT_DIR$/main" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -29,8 +28,8 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="336" column="56" selection-start-line="336" selection-start-column="39" selection-end-line="336" selection-end-column="56" />
+            <state relative-caret-position="471">
+              <caret line="346" column="14" selection-start-line="346" selection-start-column="14" selection-end-line="346" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -182,12 +181,12 @@
       <option name="presentableId" value="Default" />
       <updated>1531882587443</updated>
       <workItem from="1531882593537" duration="22990000" />
-      <workItem from="1532101141833" duration="5297000" />
+      <workItem from="1532101141833" duration="5640000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28287000" />
+    <option name="totallyTimeSpent" value="28630000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1914" y="641" width="1550" height="748" extended-state="0" />
@@ -276,8 +275,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="336" column="56" selection-start-line="336" selection-start-column="39" selection-end-line="336" selection-end-column="56" />
+        <state relative-caret-position="471">
+          <caret line="346" column="14" selection-start-line="346" selection-start-column="14" selection-end-line="346" selection-end-column="14" />
         </state>
       </provider>
     </entry>
