@@ -32,7 +32,11 @@ int my_main();
 // import data and helpers
 void import_data();
 void print_matrix(vector< vector<double> > array);
+void print_vector(vector<double> my_vector);
 vector< vector<double> > build_matrix(string file_name);
+vector<double> get_vector_slice(vector<vector <double> > array, int column);
+vector< vector<double> > get_matrix_input_data(vector<vector <double> > array, int column);
+void separate_vector_from_matrix_by_column(vector< vector<double> > matrix, int column);
 
 // initialize structures
 void init_vector(int arg[], int length);
@@ -109,13 +113,22 @@ void import_data() {
 
 
 
-    vector< vector<double> > matrix_1 = build_matrix("bike-sharing-dataset.csv");
+    // column to extract y vector
+    int y_column = 1;
     vector< vector<double> > simple_matrix = build_matrix("temp_x_rental_num_y_simple.csv");
-    print_matrix(simple_matrix);
+    vector<double> y_vector = get_vector_slice(simple_matrix, y_column);
+    vector< vector<double> > data_matrix = get_matrix_input_data(simple_matrix, y_column);
+
+    print_matrix(data_matrix);
 
     // import data via csv.
     // build matrix
     // build test sets
+}
+
+void separate_vector_from_matrix_by_column(vector< vector<double> > matrix, int column) {
+    get_vector_slice(matrix, column);
+    get_matrix_input_data(matrix, column);
 }
 
 vector< vector<double> > build_matrix(string fileName) {
@@ -144,12 +157,54 @@ vector< vector<double> > build_matrix(string fileName) {
     return array;
 }
 
+vector< vector<double> > get_matrix_input_data(vector<vector <double> > array, int column) {
+    // reference vector by pointer
+    //vector<double> pos = array;
+    //vector< vector<double> > *pointer = &array;
+    //double some_num = pointer*[0][1];
+    //cout << "print val: " <<  some_num << "\n";
+    for (int i=0; i<array.size(); i++) {
+        //cout << "i: " << i << "\n";
+        array[i].erase(array[i].begin() + 1);
+        //cout << "print val: " <<  array[i][1] << "\n";
+    };
+
+    print_matrix(array);
+    return array;
+}
+
+vector<double> get_vector_slice(vector<vector <double> > array, int column) {
+    vector<double> result;
+    // reference vector by pointer
+    //vector<double> pos = array;
+    //vector< vector<double> > *pointer = &array;
+    //double some_num = pointer*[0][1];
+    //cout << "print val: " <<  some_num << "\n";
+    for (int i=0; i<array.size(); i++) {
+        //cout << "i: " << i << "\n";
+        result.push_back(array[i][column]);
+        array[i].erase(array[i].begin() + 1);
+        //cout << "print val: " <<  array[i][1] << "\n";
+    };
+
+    print_matrix(array);
+    return result;
+}
+
+
+
 void print_matrix(vector< vector<double> > array) {
     for (auto& row:array) {
         for (auto& val:row)
             cout << val << " ";
         cout << "\n";
     }
+}
+
+void print_vector(vector<double> my_vector) {
+    for (int i=0; i< my_vector.size(); i++)
+        cout << my_vector[i] << " \n";
+    cout << "\n";
 }
 
 // define variables
