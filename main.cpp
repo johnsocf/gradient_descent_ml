@@ -31,7 +31,8 @@ int my_main();
 
 // import data and helpers
 void import_data();
-void print_matrix(vector< vector<string> > array);
+void print_matrix(vector< vector<double> > array);
+vector< vector<double> > build_matrix(string file_name);
 
 // initialize structures
 void init_vector(int arg[], int length);
@@ -106,36 +107,44 @@ void runThisFunction(int arg[]) {
 
 void import_data() {
 
-    ifstream inFile;
-    inFile.open("bike-sharing-dataset.csv");
-    if (!inFile.is_open()) {
-        cout << "open file failed \n";
-    } else {
-        cout << "file opened \n";
-    }
 
-    string line, val;
-    vector< vector<string> > array;
-    vector<string> v;
 
-    while (getline(inFile, line)) {
-        vector<string> v;
-        stringstream s (line);
-        while (getline (s, val, ','))
-            //cout << "print val: " << val << "\n";
-            v.push_back(val);
-            //cout << "pushed back \n";
-        array.push_back(v);
-    }
-
-    print_matrix(array);
+    vector< vector<double> > matrix_1 = build_matrix("bike-sharing-dataset.csv");
+    vector< vector<double> > simple_matrix = build_matrix("temp_x_rental_num_y_simple.csv");
+    print_matrix(simple_matrix);
 
     // import data via csv.
     // build matrix
     // build test sets
 }
 
-void print_matrix(vector< vector<string> > array) {
+vector< vector<double> > build_matrix(string fileName) {
+    ifstream inFile;
+    inFile.open(fileName);
+    if (!inFile.is_open()) {
+        cout << "open file failed \n";
+    } else {
+        cout << "file opened \n";
+    }
+    string line, val;
+    vector<double> v;
+    vector<vector <double> > array;
+
+
+    while (getline(inFile, line)) {
+        vector<double> v;
+        stringstream s (line);
+        while (getline (s, val, ','))
+            //cout << "print val: " <<  stod(val) << "\n";
+            v.push_back(stod(val));
+        //cout << "pushed back \n";
+        array.push_back(v);
+    }
+
+    return array;
+}
+
+void print_matrix(vector< vector<double> > array) {
     for (auto& row:array) {
         for (auto& val:row)
             cout << val << " ";
