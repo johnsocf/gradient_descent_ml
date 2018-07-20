@@ -1,4 +1,4 @@
-# Install script for directory: /Users/catherinejohnson/Desktop/Sites/CSCI_2270/matrices_ml
+# Install script for directory: /Users/cat/Desktop/CSCI_2270/gradient_descent_ml
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/catherinejohnson/Desktop/Sites/CSCI_2270/matrices_ml/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/cat/Desktop/CSCI_2270/gradient_descent_ml/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

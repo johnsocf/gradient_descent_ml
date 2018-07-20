@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/catherinejohnson/Desktop/Sites/CSCI_2270/matrices_ml/main.cpp" "/Users/catherinejohnson/Desktop/Sites/CSCI_2270/matrices_ml/cmake-build-debug/CMakeFiles/matrices_ml.dir/main.cpp.o"
+  "/Users/cat/Desktop/CSCI_2270/gradient_descent_ml/main.cpp" "/Users/cat/Desktop/CSCI_2270/gradient_descent_ml/cmake-build-debug/CMakeFiles/matrices_ml.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

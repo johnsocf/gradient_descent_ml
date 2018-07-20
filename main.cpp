@@ -119,10 +119,6 @@ void import_data() {
     vector<double> cost_matrix = initialize_gradient_descent(0, simple_matrix.size());
     gradient_descent_min_cost(simple_matrix, y_column, cost_matrix);
 
-    //initialize_gradient_descent()
-
-    //print_matrix(data_matrix);
-
     // import data via csv.
     // build matrix
     // build test sets
@@ -165,11 +161,22 @@ vector< vector<double> > get_matrix_input_data(vector<vector <double> > array, i
     //vector< vector<double> > *pointer = &array;
     //double some_num = pointer*[0][1];
     //cout << "print val: " <<  some_num << "\n";
+
+    // first iterate through rows.
     for (int i=0; i<array.size(); i++) {
         //cout << "i: " << i << "\n";
+        vector<double>::iterator it;
+        it = array[i].begin();
+        // add identity row to first
+        array[i].insert(it, 1);
+
+        // remove output row.
         array[i].erase(array[i].begin() + 1);
         //cout << "print val: " <<  array[i][1] << "\n";
     };
+
+    // add identity
+
 
     print_matrix(array);
     return array;
@@ -239,8 +246,11 @@ vector<double> initialize_gradient_descent(int initial_values, int param_length)
     // each param gets initialized to 0
     vector<double> initial_cost_matrix;
     for (int i=0; i<param_length; i++) {
-        initial_cost_matrix[i] = initial_values;
+        initial_cost_matrix.push_back(initial_values);
+        //initial_cost_matrix[i] = initial_values;
     }
+
+    //print_vector(initial_cost_matrix);
     return initial_cost_matrix;
 }
 
@@ -289,12 +299,13 @@ void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_colu
     vector<double> y_vector = get_vector_slice(total_matrix, y_column);
     vector< vector<double> > data_matrix = get_matrix_input_data(total_matrix, y_column);
 
-
+    //toDo: add in next;
     int sum = 0;
     int m = total_matrix[0].size();
     vector<double> new_cost_vector;
     vector<double> hypothesis_vector = hypothesis_linear_regression(cost_vector, total_matrix);
 
+    
 
     for (int i=0; i<=data_matrix.size(); i++) {
         sum += (hypothesis_vector[i] - y_vector[i]);
