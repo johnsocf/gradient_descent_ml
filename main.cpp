@@ -12,13 +12,13 @@ int rowA = 0;
 int colA = 0;
 
 // determines size of steps in each iteration of gradient descent
-#define learning_rate .0001;
+//#define learning_rate .0001;
 
 // defines whether we are considering all
 // training data or small subset.
 #define batch true;
 
-
+int test_loops = 0;
 
 int something[10];
 int my_main();
@@ -58,7 +58,7 @@ void add_matrices(int X[], int X2[]);
 vector<double> initialize_gradient_descent(int initial_values, int param_length);
 
 // ml algorithms
-vector<double>  hypothesis_linear_regression(vector<double> param_vector, vector< vector<double> > data_matrix);
+vector<double>  hypothesis_linear_regression(vector<double> cost_vector, vector< vector<double> > data_matrix);
 void gradient_descent(int arg[]);
 void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_column, vector<double> cost_vector);
 
@@ -115,9 +115,10 @@ void import_data() {
 
     // column to extract y vector
     int y_column = 1;
-    vector< vector<double> > simple_matrix = build_matrix("temp_x_rental_num_y_simple.csv");
-    vector<double> cost_matrix = initialize_gradient_descent(0, simple_matrix.size());
-    gradient_descent_min_cost(simple_matrix, y_column, cost_matrix);
+    vector< vector<double> > data_matrix = build_matrix("test1.csv");
+    cout << "data matrix size: " <<  data_matrix.size() << "\n";
+    vector<double> cost_matrix = initialize_gradient_descent(0, data_matrix[0].size());
+    gradient_descent_min_cost(data_matrix, y_column, cost_matrix);
 
     // import data via csv.
     // build matrix
@@ -213,7 +214,7 @@ void print_matrix(vector< vector<double> > array) {
 
 void print_vector(vector<double> my_vector) {
     for (int i=0; i< my_vector.size(); i++)
-        cout << my_vector[i] << " \n";
+        cout << my_vector[i] << "   ";
     cout << "\n";
 }
 
@@ -245,6 +246,7 @@ vector<double> initialize_gradient_descent(int initial_values, int param_length)
     // initialize gradient descent with starting values for each param
     // initialize params of O0, O1, and all j = params from i to m
     // each param gets initialized to 0
+    cout << "param length: " << param_length << "\n";
     vector<double> initial_cost_matrix;
     for (int i=0; i<param_length; i++) {
         initial_cost_matrix.push_back(initial_values);
@@ -256,7 +258,7 @@ vector<double> initialize_gradient_descent(int initial_values, int param_length)
 }
 
 // algorithms
-vector<double>  hypothesis_linear_regression(vector<double> param_vector, vector< vector<double> > data_matrix) {
+vector<double>  hypothesis_linear_regression(vector<double> cost_vector, vector< vector<double> > data_matrix) {
     // return hypothesis based on linear regression formula
     // hO(x) = O0 + O1x;
     //return O0 + O1 * x;
@@ -275,13 +277,14 @@ vector<double>  hypothesis_linear_regression(vector<double> param_vector, vector
     //cout << " row length: " << m << "\n";
     //cout << " parameter length: " << c_s << "\n";
 
-    double hyp = 0;
+
     for (int row=0; row < m; row++) {
          //first row.
+        double hyp = 0;
         for (int column=0; column < c_s; column++) {
-            cout << "input param" << row << " params: " << param_vector[row] << " ";
-            cout << "each in each row:" << row << " data for params: " << data_matrix[row][column] << "\n";
-            hyp += param_vector[row] * data_matrix[row][column];
+            //cout << "input param" << row << " params: " << cost_vector[row] << " ";
+            //cout << "each in each row:" << row << " data for params: " << data_matrix[row][column] << "\n";
+            hyp += cost_vector[row] * data_matrix[row][column];
              //do stuff ...
         }
         hypothesis.push_back(hyp);
@@ -291,7 +294,7 @@ vector<double>  hypothesis_linear_regression(vector<double> param_vector, vector
     //calculates a hypothesis vector for each row based on multiplying params times data for each column.
     // vector has a value per row.  calculations are per row.
 
-    print_vector(hypothesis);
+    //print_vector(hypothesis);
 
 //    for (int i=0; i<param_vector.size(); i++) {
 //        // toDo: data_vector[0] is temp because we're passing in a matrix but accessing a simple vector untill
@@ -330,76 +333,48 @@ void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_colu
 
     // for h0 - utilize hypothesis linear model drawing on linear descent eq;
 
+
     vector<double> y_vector = get_vector_slice(total_matrix, y_column);
     vector< vector<double> > data_matrix = get_matrix_input_data(total_matrix, y_column);
 
-    //toDo: add in next;
     vector<double> new_cost_vector;
     vector<double> hypothesis_vector = hypothesis_linear_regression(cost_vector, data_matrix);
 
-    int m = data_matrix.size();
-    int c_s = data_matrix[0].size();
+    cout << "hypothesis vector: \n";
+    print_vector(hypothesis_vector);
 
-    double sum = 0;
+    cout << "cost vector: \n";
+    print_vector(cost_vector);
 
-
-    for (int row=0; row < m; row++) {
-
-        double xi = cost_vector[row];
-        if (row==0) {
-            xi = 1;
-        }
-        // need two loops
-        //new_cost_vector[row]  += (hypothesis_vector[row] - y_vector[row]) * xi;
+    // item length (# of items)
+    double m = data_matrix.size();
+    // param length (# of params)
+    int n = cost_vector.size();
 
 
-        //first row.
-        //sum += (hypothesis_vector[row] - y_vector[row]);
-//            for (int column = 0; column < c_s; column++) {
-//                //new_cost_vector.push_back()
-//                //do stuff ...
-//            }
-    }
+    double learning_rate = .1;
+    bool rebuild_for_lower_error = false;
 
-    for (int row=0; row < m; row++) {
-        double regression_eq_result;
-        if (row == 0) {
-            regression_eq_result = (1/m) * sum;
-        } else {
-            // data_matrix[row]
-            // xi - not sure what this is for each row but it pertains to the row.
-            // i think it's the prev cost for the row.
-            //regression_eq_result = (1/m) * sum * xi;
+
+    for (int j=0; j < n; j++) {
+        double sum_of_derivatives = 0;
+
+        for (int i=0; i < m; i++) {
+            sum_of_derivatives += (hypothesis_vector[i] - y_vector[i]) * data_matrix[i][j];
         }
 
-        //new_cost_vector.push_back()
+        double cost_vector_at_j = cost_vector[j] - learning_rate * (1/m) * sum_of_derivatives;
+        if (cost_vector_at_j > .5) {rebuild_for_lower_error = true;}
+        cost_vector[j] = cost_vector_at_j;
     }
 
 
 
-//    for (int row=0; row< data_matrix.size(); row++) {
-//        // first row.
-//
-//        for (int column=0; row< data_matrix[0].size(); column++) {
-//            cout << "each in each row:" << data_matrix[row][column] << "\n";
-//            //cout << "colum stuff: " << col
-//            // do stuff ...
-//        }
-//    }
-
-//    for (int i=0; i<=data_matrix.size(); i++) {
-//        sum += (hypothesis_vector[i] - y_vector[i]);
-//        for (int j=0; i<=data_matrix[i].size(); i++) {
-//            new_cost_vector[j] = (1/m) * sum;
-//        }
-//        sum = 0;
-//    }
-//
-
-
-    // if each cost isn't at 0....
-    // call recursively
-    //gradient_descent_min_cost(total_matrix, y_column, new_cost_vector);
+    if (rebuild_for_lower_error) {
+        cout << "loop!: " << test_loops << "\n";
+        test_loops ++;
+        gradient_descent_min_cost(total_matrix, y_column, cost_vector);
+    }
 
 }
 
