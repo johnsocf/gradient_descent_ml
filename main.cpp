@@ -5,6 +5,8 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <math.h>
+#include <cmath>
 
 using namespace std;
 
@@ -355,6 +357,8 @@ void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_colu
     double m = data_matrix.size();
     // param length (# of params)
     int n = coefficient_training_vector.size();
+    double tolerance = .0000001;
+    //double lower_bound =
 
 
     double learning_rate = .01;
@@ -371,9 +375,13 @@ void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_colu
         double coefficient_training_vector_at_j;
         double coefficient_reset_value = coefficient_training_vector[j] - learning_rate * (1/m) * sum_of_derivatives_for_each_param;
 
-        cout << "coef training vector at j" << coefficient_training_vector[j] << "\n";
-        cout << "reset val" << coefficient_reset_value << "\n";
-        if (coefficient_training_vector[j] != coefficient_reset_value) {
+        cout << "coef training vector at j: " << coefficient_training_vector[j] << "\n";
+        cout << "reset val: " << coefficient_reset_value << "\n";
+        cout << "difference of coeffs: " << abs(coefficient_reset_value - coefficient_training_vector[j]) << "\n";
+        cout << "tolerance: " << tolerance << "\n";
+        cout << "condition prints: " << (abs(coefficient_reset_value - coefficient_training_vector[j]) < tolerance) << "\n";
+
+        if (!(abs(coefficient_reset_value - coefficient_training_vector[j]) < tolerance)) {
             cout << "test rebuild flag: " << rebuild_for_lower_error << "\n";
             rebuild_for_lower_error = true;
         }
