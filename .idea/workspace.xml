@@ -12,10 +12,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1928409-053f-4c51-85a5-799e2a062a51" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/test3.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main" beforeDir="false" afterPath="$PROJECT_DIR$/main" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp_x_rental_num_y_simple.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp_x_rental_num_y_simple.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/test1.csv" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,8 +37,8 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="372" column="31" selection-start-line="372" selection-start-column="31" selection-end-line="372" selection-end-column="31" />
+            <state relative-caret-position="164">
+              <caret line="374" column="27" selection-start-line="374" selection-start-column="27" selection-end-line="374" selection-end-column="27" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -66,55 +67,70 @@
       <file leaf-file-name="temp_x_rental_num_y_simple.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/temp_x_rental_num_y_simple.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+            <state relative-caret-position="193">
+              <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="w_c_data_set.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/w_c_data_set.csv">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
       <file leaf-file-name="test1.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test1.csv">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="test3.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test3.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+            <state relative-caret-position="150">
+              <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test2.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test2.csv">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>initialize_gradient_des</find>
-      <find>hypothesis_</find>
-      <find>hypothesis_linear_reg</find>
-      <find>each in each row</find>
-      <find>each in each</find>
-      <find>cout</find>
-      <find>print</find>
-      <find>print_</find>
-      <find>initialize_grad</find>
       <find>gradient_descent</find>
       <find>data_matrix</find>
       <find>get_matrix</find>
       <find>get_matrix_input</find>
-      <find>hypothesis_linear_regression</find>
-      <find>hypothesis_linear</find>
       <find>linear</find>
       <find>sis_linear</find>
       <find>hypothesis</find>
       <find>param_Vector</find>
       <find>linear_regression</find>
-      <find>learning_rate</find>
       <find>multi_</find>
       <find>cost_vector</find>
-      <find>gradient_descent_min_cost</find>
       <find>initialize_Gradient</find>
       <find>initialize_Gradient_Descent</find>
       <find>print_matrix</find>
       <find>print_vector</find>
-      <find>learning</find>
       <find>&lt; 5</find>
+      <find>gradient_Descent_min</find>
+      <find>hypothesis_linear</find>
+      <find>coefficient_training_vec</find>
+      <find>coefficient_vec</find>
+      <find>learning</find>
+      <find>gradient_descent_min_cost</find>
+      <find>initialize_gradient_descent</find>
+      <find>coefficient_training_vector</find>
+      <find>gradient_Descent_min_cost</find>
+      <find>hypothesis_linear_regression</find>
+      <find>initialize_gradient</find>
+      <find>c</find>
+      <find>learning_rate</find>
+      <find>rebuild_for_lower_error</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -127,6 +143,7 @@
         <option value="$PROJECT_DIR$/bike-sharing-dataset.csv" />
         <option value="$PROJECT_DIR$/temp_x_rental_num_y_simple.csv" />
         <option value="$PROJECT_DIR$/test1.csv" />
+        <option value="$PROJECT_DIR$/test3.csv" />
         <option value="$PROJECT_DIR$/main.cpp" />
       </list>
     </option>
@@ -141,8 +158,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="18" />
-    <option name="y" value="67" />
+    <option name="x" value="17" />
+    <option name="y" value="123" />
     <option name="width" value="1158" />
     <option name="height" value="672" />
   </component>
@@ -170,6 +187,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -207,13 +229,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34053000" />
+    <option name="totallyTimeSpent" value="38684000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="18" y="67" width="1158" height="672" extended-state="0" />
+    <frame x="17" y="123" width="1158" height="672" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32717678" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.09674582" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="CMake" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
@@ -336,24 +358,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test1.csv">
+    <entry file="file://$PROJECT_DIR$/temp_x_rental_num_y_simple.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+        <state relative-caret-position="193">
+          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/temp_x_rental_num_y_simple.csv">
+    <entry file="file://$PROJECT_DIR$/w_c_data_set.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test2.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test1.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test3.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+        <state relative-caret-position="150">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="372" column="31" selection-start-line="372" selection-start-column="31" selection-end-line="372" selection-end-column="31" />
+        <state relative-caret-position="164">
+          <caret line="374" column="27" selection-start-line="374" selection-start-column="27" selection-end-line="374" selection-end-column="27" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
