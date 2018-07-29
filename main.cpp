@@ -21,6 +21,10 @@ int colA = 0;
 
 int test_loops = 0;
 
+int total_running_loop = 0;
+
+int total_loop = 0;
+
 int something[10];
 int my_main();
 
@@ -38,6 +42,7 @@ vector< vector<double> > build_matrix(string file_name);
 vector<double> get_vector_slice(vector<vector <double> > array, int column);
 vector< vector<double> > get_matrix_input_data(vector<vector <double> > array, int column);
 void separate_vector_from_matrix_by_column(vector< vector<double> > matrix, int column);
+void print_linear_eq(vector<double> coeff_vector);
 
 // initialize structures
 void init_vector(int arg[], int length);
@@ -92,7 +97,7 @@ void runThisFunction(int arg[]);
 
 
 int my_main() {
-    std::cout << "Hello, World!" << std::endl;
+
     runThisFunction(something);
     int this_array[5] = {3, 4, 5, 6, 7};
     int m = training_example_length(this_array);
@@ -126,7 +131,6 @@ void import_data() {
     // column to extract y vector
     int y_column = 2;
     vector< vector<double> > data_matrix = build_matrix("test4.csv");
-    cout << "data matrix size: " <<  data_matrix.size() << "\n";
     vector<double> coefficient_training_vector = initialize_gradient_descent(100, data_matrix[0].size());
     vector<double> cost_vector = initialize_gradient_descent(100, data_matrix[0].size());
     double learning_rate = .004;
@@ -149,6 +153,7 @@ vector< vector<double> > build_matrix(string fileName) {
         cout << "open file failed \n";
     } else {
         cout << "file opened \n";
+        cout << "please wait for linear equation for gradient descent based on input data \n";
     }
     string line, val;
     vector<double> v;
@@ -159,9 +164,7 @@ vector< vector<double> > build_matrix(string fileName) {
         vector<double> v;
         stringstream s (line);
         while (getline (s, val, ','))
-            //cout << "print val: " <<  stod(val) << "\n";
             v.push_back(stod(val));
-        //cout << "pushed back \n";
         array.push_back(v);
     }
 
@@ -169,11 +172,6 @@ vector< vector<double> > build_matrix(string fileName) {
 }
 
 vector< vector<double> > get_matrix_input_data(vector<vector <double> > array, int column) {
-    // reference vector by pointer
-    //vector<double> pos = array;
-    //vector< vector<double> > *pointer = &array;
-    //double some_num = pointer*[0][1];
-    //cout << "print val: " <<  some_num << "\n";
 
     // first iterate through rows.
     for (int i=0; i<array.size(); i++) {
@@ -186,30 +184,21 @@ vector< vector<double> > get_matrix_input_data(vector<vector <double> > array, i
         // remove output row.
         array[i].erase(array[i].begin() + 2);
         array[i].insert(it, 1);
-        //cout << "print val: " <<  array[i][1] << "\n";
     };
 
     // add identity
 
 
-    //print_matrix(array);
     return array;
 }
 
 vector<double> get_vector_slice(vector<vector <double> > array, int column) {
     vector<double> result;
     // reference vector by pointer
-    //print_matrix(array);
-
-    //cout << "print val: " <<  some_num << "\n";
     for (int i=0; i<array.size(); i++) {
-        //cout << "i: " << i << "\n";
         result.push_back(array[i][column]);
         array[i].erase(array[i].begin() + 2);
-        //cout << "print val: " <<  array[i][2] << "\n";
     };
-    //cout << "erased? : \n";
-    //print_matrix(array);
     return result;
 }
 
@@ -254,68 +243,30 @@ void scale_data(int arg[]) {
 
 // init
 vector<double> initialize_gradient_descent(int initial_values, int param_length) {
-    // initialize gradient descent with starting values for each param
-    // initialize params of O0, O1, and all j = params from i to m
-    // each param gets initialized to 0
-    cout << "param length: " << param_length << "\n";
     vector<double> initial_cost_matrix;
     for (int i=0; i<param_length; i++) {
         initial_cost_matrix.push_back(initial_values);
-        //initial_cost_matrix[i] = initial_values;
     }
-
-    //print_vector(initial_cost_matrix);
     return initial_cost_matrix;
 }
 
 // algorithms
 vector<double>  hypothesis_linear_regression(vector<double> coefficient_training_vector, vector< vector<double> > data_matrix) {
     // return hypothesis based on linear regression formula
-    // hO(x) = O0 + O1x;
-    //return O0 + O1 * x;
-    //cout << "coefficient training in linear reg: \n";
-    //print_vector(coefficient_training_vector);
     vector<double> hypothesis;
-
-    // for each row in data vector... use eq.
-    // data times param. at i.
 
     int m = data_matrix.size();
     int n = data_matrix[0].size();
-//    if (data_matrix.size()!=0) {
-//        c_s = data_matrix[0].size();
-//    }
-
-    //cout << " row length: " << m << "\n";
-    //cout << " parameter length: " << c_s << "\n";
-    //cout << "coefficient training: \n";
-    //print_vector(coefficient_training_vector);
 
 
     for (int row=0; row < m; row++) {
          //first row.
         double hyp = 0;
         for (int column=0; column < n; column++) {
-            //cout << "param row" << row << "\n params: " << coefficient_training_vector[column] << " \n";
-            //cout << "data in each row row: " << row << " \ndata in row: " << data_matrix[row][column] << "\n";
             hyp += coefficient_training_vector[column] * data_matrix[row][column];
-             //do stuff ...
         }
         hypothesis.push_back(hyp);
     }
-
-    //given a set of data with an identity row at position 0 for the linear eq.
-    //calculates a hypothesis vector for each row based on multiplying params times data for each column.
-    // vector has a value per row.  calculations are per row.
-
-    //print_vector(hypothesis);
-
-//    for (int i=0; i<param_vector.size(); i++) {
-//        // toDo: data_vector[0] is temp because we're passing in a matrix but accessing a simple vector untill
-//        // we get to multi variate
-//        hypothesis[i] += (param_vector[i] * data_matrix[0][i]);
-//    }
-
 
     return hypothesis;
 }
@@ -332,50 +283,16 @@ void gradient_descent(int arg[]) {
 }
 
 void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_column, vector<double> cost_vector, vector<double> coefficient_training_vector, double learning_rate) {
-    // apply gradient descent to linear regression model to minimize cost function.
-    // h = hypothesis
-    // J(O0, O1) = (1/2m) * sum of for each i=1 to m: (hO(x^(i))-y^(i))^2
-    // derivative in this context is: (hO(x^(i))-y^(i))^2
-
-    // determine partial derivative for each j term.
-    // repeat until convergence.
-    // updating simultaneously.
-    // j = 0
-    // (1/m) * sum of for each i=1 to m: (hO(x^(i))-y^(i))
-    // j = 0
-    // (1/m) * sum of for each i=1 to m: (hO(x^(i))-y^(i)) * x^(i)
-
-    // for h0 - utilize hypothesis linear model drawing on linear descent eq;
-
     vector<double> y_vector = get_vector_slice(total_matrix, y_column);
     vector< vector<double> > data_matrix = get_matrix_input_data(total_matrix, y_column);
-    //cout << "rint matrix data: \n";
-    //print_matrix(data_matrix);
-    //cout << "coefficient training: \n";
-    //sprint_vector(coefficient_training_vector);
-
     vector<double> hypothesis_vector = hypothesis_linear_regression(coefficient_training_vector, data_matrix);
-//
-    //cout << "hypothesis vector: \n";
-    //print_vector(hypothesis_vector);
-//
-    cout << "coeff vector lr: " << learning_rate << "\n";
-    print_vector(coefficient_training_vector);
-//
-//    // item length (# of items)
     double m = data_matrix.size();
-//    // param length (# of params)
     int n = coefficient_training_vector.size();
-    int tolerance = .2;
+    int tolerance = .3;
     bool this_is_inf = false;
     bool keep_going = false;
     bool is_good = true;
-//
-//
-    //double learning_rate = .0328;
     bool rebuild_for_lower_error = false;
-    //cout << "n: " << n << "\n";
-//
     bool is_right = true;
     for (int j=0; j < n; j++) {
         double sum_of_derivatives_for_each_param = 0;
@@ -387,20 +304,8 @@ void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_colu
             double doj = floor((data_matrix[i][j] * 100) + .5) / 100;
             if (isinf(doj)) {doj = 0;}
             sum_of_derivatives_for_each_param += (ho - yo) * doj;
-//            cout << "hyp vect: " << hypothesis_vector[i] << "\n";
-//            cout << "y vect: " << y_vector[i] << "\n";
-//            cout << "data m: " << data_matrix[i][j] << "\n";
             if (isinf(sum_of_derivatives_for_each_param)) {
-                cout << "hyp vect exp: " << floor(hypothesis_vector[i]) << "\n";
-                cout << "hyp vect: " << ho << " - ";
-                cout << "y vect: " << yo << " * ";
-
-                cout << "data m: " << doj << "\n";
-                cout << "hyp: " << ho-yo << "\n";
-                cout << "hyp: " << ho-yo << "\n";
-                this_is_inf = true;
-                cout << "learning rate: " << learning_rate << "\n";
-                //return;
+                ///...
             }
             if (ho-yo > .15) {
                 rebuild_for_lower_error = true;
@@ -412,16 +317,10 @@ void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_colu
 
         double coefficient_training_vector_at_j;
         double coefficient_reset_value = coefficient_training_vector[j] - learning_rate * (1/m) * sum_of_derivatives_for_each_param;
-
-        //cout << "coef training vector at j" << coefficient_training_vector[j] << "\n";
-        //cout << "sum of deriv" << sum_of_derivatives_for_each_param << "\n";
-       // cout << "reset val" << coefficient_reset_value << "\n";
         if (!(abs(coefficient_training_vector[j] - coefficient_reset_value) < tolerance)) {
-            //cout << "test rebuild flag: " << rebuild_for_lower_error << "\n";
             rebuild_for_lower_error = true;
         }
 
-        //bool test_inf
         if (isinf(sum_of_derivatives_for_each_param)) {
             cout << "is inf: " << coefficient_training_vector_at_j << "\n";
             return;
@@ -431,42 +330,46 @@ void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_colu
         if ((coefficient_training_vector_at_j - coefficient_training_vector[j]) > 100) {
             is_good = false;
         }
-        //coefficient_training_vector_at_j < coefficient_training_vector[j]
-//        if (coefficient_reset_value < 0 && test_loops > 50 && learning_rate > .31) {
-//            learning_rate = learning_rate - .01;
-//        }
-//        if (coefficient_training_vector_at_j < coefficient_training_vector[j] || coefficient_training_vector[j] < 0 && learning_rate > .035 && test_loops > 50) {
-//            learning_rate = learning_rate - .001;
-//        } else {
-//            learning_rate = learning_rate + .001;
-//        }
-
         coefficient_training_vector[j] = coefficient_training_vector_at_j;
     }
 
-    //if (test_loops > 5000) {learning_rate = learning_rate + .0001;}
 
     if (rebuild_for_lower_error) {
-        cout << "loop!: " << test_loops << "\n";
         test_loops ++;
-        //learning_rate = learning_rate + .0001;
         if (is_right) {test_loops = 0;}
         if (test_loops > 25) {
             learning_rate = learning_rate + .00015;
             test_loops = 0;}
         if (!is_good && (learning_rate > .0001)) {learning_rate = learning_rate - .0001;}
-        cout << "learning rate iiii: " << learning_rate << "\n";
+        total_loop ++;
+        if (total_running_loop > 6000) {
+            print_linear_eq(coefficient_training_vector);
+            return;
+        }
+        total_running_loop ++;
         gradient_descent_min_cost(total_matrix, y_column, cost_vector, coefficient_training_vector, learning_rate);
-    }
 
-    // adjust learning rate programatically.
-    // if # loops over 7819 and check margin of error...
-        // re-run with learning loop +.001
-    // if there's an inf - decrease
+    }
 
 }
 
+void print_linear_eq(vector<double> coeff_vector) {
+    int n = coeff_vector.size();
+    string alphabet_vars[] = {"y", "x", "z", "a", "b", "c"};
+    string equation = "";
+    for (int row=0; row < n; row++) {
 
+        switch(row) {
+            case 0:
+                equation += alphabet_vars[row] + " = " + to_string((int)round(coeff_vector[row]));
+                break;
+            default:
+                equation += " + " + to_string((int)round(coeff_vector[row])) + "" + alphabet_vars[row];
+        }
+
+    }
+    cout << "the machine learned equation is: \n" << equation << ".  happy linear predicting!\n";
+}
 
 // multi dimensional
 int hypothesis_linear_regression_multi_feat(int arg[]) {

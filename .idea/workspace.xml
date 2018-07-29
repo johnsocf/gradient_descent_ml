@@ -12,9 +12,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1928409-053f-4c51-85a5-799e2a062a51" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/test4.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main" beforeDir="false" afterPath="$PROJECT_DIR$/main" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
@@ -32,8 +29,8 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="127" column="62" selection-start-line="127" selection-start-column="62" selection-end-line="127" selection-end-column="62" />
+            <state relative-caret-position="279">
+              <caret line="370" column="48" selection-start-line="370" selection-start-column="48" selection-end-line="370" selection-end-column="48" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -114,12 +111,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>gradient_descent_min_cost</find>
-      <find>min_cost</find>
-      <find>.1</find>
-      <find>coefficient training</find>
-      <find>isinf</find>
-      <find>data_matrix</find>
       <find>y_column</find>
       <find>get_Vector</find>
       <find>print_matri</find>
@@ -144,6 +135,12 @@
       <find>is_right</find>
       <find>&gt;</find>
       <find>&gt; .0</find>
+      <find>linear_eq</find>
+      <find>learning rate</find>
+      <find>total_loop</find>
+      <find>total_running</find>
+      <find>cout</find>
+      <find>print_</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -244,7 +241,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52008000" />
+    <option name="totallyTimeSpent" value="53995000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="16" y="141" width="1024" height="621" extended-state="0" />
@@ -291,7 +288,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/main.cpp</url>
-          <line>356</line>
+          <line>287</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
@@ -420,8 +417,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="127" column="62" selection-start-line="127" selection-start-column="62" selection-end-line="127" selection-end-column="62" />
+        <state relative-caret-position="279">
+          <caret line="370" column="48" selection-start-line="370" selection-start-column="48" selection-end-line="370" selection-end-column="48" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
