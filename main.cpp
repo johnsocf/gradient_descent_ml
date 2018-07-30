@@ -134,17 +134,17 @@ void import_data() {
     // column to extract y vector
     int y_column = 2;
     //vector< vector<double> > data_matrix = build_matrix("bds.csv");
-    vector< vector<double> > data_matrix = build_matrix("test4.csv");
+    vector< vector<double> > data_matrix = build_matrix("test6.csv");
 
     vector< vector<double> > testing_matrix_data = split_testing_data_from_matrix(data_matrix);
     vector<double> y_vector_testing = get_vector_slice(testing_matrix_data, y_column);
 
 
-    vector<double> coefficient_training_vector = initialize_gradient_descent(100, data_matrix[0].size());
-    vector<double> cost_vector = initialize_gradient_descent(100, data_matrix[0].size());
-    double learning_rate = .004;
-    bool set_learning_rate_manuall = true;
-    gradient_descent_min_cost(data_matrix, y_column, cost_vector, coefficient_training_vector, learning_rate, testing_matrix_data, y_vector_testing, set_learning_rate_manuall);
+    vector<double> coefficient_training_vector = initialize_gradient_descent(50, data_matrix[0].size());
+    vector<double> cost_vector = initialize_gradient_descent(50, data_matrix[0].size());
+    double learning_rate = .003;
+    bool set_learning_rate_manually = false;
+    gradient_descent_min_cost(data_matrix, y_column, cost_vector, coefficient_training_vector, learning_rate, testing_matrix_data, y_vector_testing, set_learning_rate_manually);
 
     // import data via csv.
     // build matrix
@@ -245,7 +245,7 @@ double calculate_standard_error_of_estimate(vector<double> fresh_test_data_matri
     int m = data_matrix.size();
     int n = linear_coefficients.size();
     string equation = "";
-    int standard_error_of_estimate = 0;
+    double standard_error_of_estimate = 0;
     for (int row=0; row < m; row++) {
         double linear_eq_y = 0;
         for (int column=0; column < n; column++) {
@@ -256,15 +256,16 @@ double calculate_standard_error_of_estimate(vector<double> fresh_test_data_matri
                 //cout << "coeff: " << linear_coefficients[column] << "\n";
                 linear_eq_y += linear_coefficients[column];
             } else {
-                //cout << "data: " << data_matrix[row][column-1] << "\n";
-//                cout << "coeff: " << linear_coefficients[column] << "\n";
-//                cout << "============================== 'n";
+
+                //cout << "============================== '\n";
                 linear_eq_y += linear_coefficients[column] * data_matrix[row][column-1];
             }
         }
-        cout << "error: " << pow((fresh_test_data_matrix_y[row] - linear_eq_y), 2) << "\n";
-        standard_error_of_estimate += pow((fresh_test_data_matrix_y[row] - linear_eq_y), 2);
+//        cout << "error: " << pow((fresh_test_data_matrix_y[row] - linear_eq_y), 2) << "\n";
+//        cout << "============================== '\n";
+//        standard_error_of_estimate = standard_error_of_estimate + pow((fresh_test_data_matrix_y[row] - linear_eq_y), 2);
     }
+    cout << "error: " << standard_error_of_estimate << "\n";
     return standard_error_of_estimate;
 }
 
@@ -404,18 +405,19 @@ void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_colu
 
     if (rebuild_for_lower_error) {
         test_loops ++;
-        if (!set_learning_rate_manually) {
+        //if (!set_learning_rate_manually) {
             if (is_right) {test_loops = 0;}
             if (test_loops > 25) {
-                learning_rate = learning_rate + .00005;
+                learning_rate = learning_rate + .00015;
                 test_loops = 0;}
             if (!is_good && (learning_rate > .0001) ) {learning_rate = learning_rate - .0001;}
-        } else {
-            if (test_loops > 25 && is_good) {
-                learning_rate = learning_rate + .0001;
-                test_loops = 0;}
-            else if (!is_good && (learning_rate > .0001)) {learning_rate = learning_rate - .0001;}
-        }
+        //}
+//        else {
+//            if (test_loops > 25 && is_good) {
+//                learning_rate = learning_rate + .0001;
+//                test_loops = 0;}
+//            else if (!is_good && (learning_rate > .0001)) {learning_rate = learning_rate - .0001;}
+//        }
         total_loop ++;
         if (total_running_loop > 6000) {
             print_linear_eq(coefficient_training_vector);
