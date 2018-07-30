@@ -28,8 +28,8 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="144" column="31" selection-start-line="144" selection-start-column="31" selection-end-line="144" selection-end-column="31" />
+            <state relative-caret-position="196">
+              <caret line="145" column="41" selection-start-line="145" selection-start-column="41" selection-end-line="145" selection-end-column="41" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -49,7 +49,7 @@
       <file leaf-file-name="test4.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test4.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="750">
+            <state relative-caret-position="615">
               <caret line="50" column="6" selection-start-line="50" selection-start-column="4" selection-end-line="50" selection-end-column="6" />
             </state>
           </provider>
@@ -110,7 +110,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>learning_rate)</find>
       <find>gradient</find>
       <find>split_testing_Data</find>
       <find>push_Back</find>
@@ -134,12 +133,13 @@
       <find>learning_rate =</find>
       <find>uall</find>
       <find>50</find>
-      <find>38</find>
       <find>error</find>
       <find>test</find>
       <find>testing</find>
       <find>testing_data</find>
       <find>coeff:</find>
+      <find>print_matr</find>
+      <find>38</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -240,7 +240,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66391000" />
+    <option name="totallyTimeSpent" value="66469000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="15" y="75" width="1239" height="716" extended-state="0" />
@@ -538,15 +538,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test4.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
+        <state relative-caret-position="615">
           <caret line="50" column="6" selection-start-line="50" selection-start-column="4" selection-end-line="50" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="144" column="31" selection-start-line="144" selection-start-column="31" selection-end-line="144" selection-end-column="31" />
+        <state relative-caret-position="196">
+          <caret line="145" column="41" selection-start-line="145" selection-start-column="41" selection-end-line="145" selection-end-column="41" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>

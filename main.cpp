@@ -143,7 +143,7 @@ void import_data() {
     vector<double> coefficient_training_vector = initialize_gradient_descent(100, data_matrix[0].size());
     vector<double> cost_vector = initialize_gradient_descent(100, data_matrix[0].size());
     double learning_rate = .004;
-    bool set_learning_rate_manuall = false;
+    bool set_learning_rate_manuall = true;
     gradient_descent_min_cost(data_matrix, y_column, cost_vector, coefficient_training_vector, learning_rate, testing_matrix_data, y_vector_testing, set_learning_rate_manuall);
 
     // import data via csv.
@@ -173,9 +173,9 @@ vector< vector<double> > split_testing_data_from_matrix(vector< vector<double> >
 
     data_matrix = minimized_data_set;
     cout << "print data matrix: \n";
-    print_matrix(data_matrix);
+    //print_matrix(data_matrix);
     cout << "print training matrix: \n";
-    print_matrix(test_set);
+    //print_matrix(test_set);
     return test_set;
 }
 
