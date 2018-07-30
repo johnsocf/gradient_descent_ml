@@ -108,7 +108,7 @@ int my_main() {
 //    for (int i=0; i <=10; i++) {
 //        for (int j=0; j<= 10; j++) {
 //            for (int k=0; k<= 10; k++) {
-//                cout << i << "," << j << "," << k << "," << (2 + 3*i + 8*j) << "\n";
+//                cout << i << "," << j << "," << k << "," << (2 + 3*i + 4*j + 5*k) << "\n";
 //            }
 //            //cout << i << "," << j << "," << (2 + 3*i + 4*j) << "\n";
 //        }
@@ -134,7 +134,7 @@ void import_data() {
     // column to extract y vector
     int y_column = 2;
     //vector< vector<double> > data_matrix = build_matrix("bds.csv");
-    vector< vector<double> > data_matrix = build_matrix("test5.csv");
+    vector< vector<double> > data_matrix = build_matrix("test4.csv");
 
     vector< vector<double> > testing_matrix_data = split_testing_data_from_matrix(data_matrix);
     vector<double> y_vector_testing = get_vector_slice(testing_matrix_data, y_column);
@@ -142,8 +142,8 @@ void import_data() {
 
     vector<double> coefficient_training_vector = initialize_gradient_descent(100, data_matrix[0].size());
     vector<double> cost_vector = initialize_gradient_descent(100, data_matrix[0].size());
-    double learning_rate = .004;
-    bool set_learning_rate_manuall = true;
+    double learning_rate = .0035;
+    bool set_learning_rate_manuall = false;
     gradient_descent_min_cost(data_matrix, y_column, cost_vector, coefficient_training_vector, learning_rate, testing_matrix_data, y_vector_testing, set_learning_rate_manuall);
 
     // import data via csv.
@@ -157,12 +157,25 @@ vector< vector<double> > split_testing_data_from_matrix(vector< vector<double> >
     int set_deliminator = round(m * .75);
     vector<double> v;
     vector< vector <double> > test_set;
+    vector< vector <double> > minimized_data_set;
     for (int i=set_deliminator; i<m; i++) {
         for (int column=0; column<n; column++) {
             int row = i - set_deliminator;
         }
         test_set.push_back(data_matrix[i]);
     };
+    for (int i=0; i<set_deliminator; i++) {
+        for (int column=0; column<n; column++) {
+            int row = i - set_deliminator;
+        }
+        minimized_data_set.push_back(data_matrix[i]);
+    };
+
+    data_matrix = minimized_data_set;
+    cout << "print data matrix: \n";
+    print_matrix(data_matrix);
+    cout << "print training matrix: \n";
+    print_matrix(test_set);
     return test_set;
 }
 
@@ -240,11 +253,12 @@ double calculate_standard_error_of_estimate(vector<double> fresh_test_data_matri
             //cout << "coeff: " << linear_coefficients[column] << "\n";
 
             if (column == 0) {
-                cout << "coeff: " << linear_coefficients[column] << "\n";
+                //cout << "coeff: " << linear_coefficients[column] << "\n";
                 linear_eq_y += linear_coefficients[column];
             } else {
-                cout << "data: " << data_matrix[row][column-1] << "\n";
-                cout << "coeff: " << linear_coefficients[column] << "\n";
+                //cout << "data: " << data_matrix[row][column-1] << "\n";
+//                cout << "coeff: " << linear_coefficients[column] << "\n";
+//                cout << "============================== 'n";
                 linear_eq_y += linear_coefficients[column] * data_matrix[row][column-1];
             }
         }
@@ -369,6 +383,7 @@ void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_colu
 
         double coefficient_training_vector_at_j;
         double coefficient_reset_value = coefficient_training_vector[j] - learning_rate * (1/m) * sum_of_derivatives_for_each_param;
+        //cout << "coef: " << coefficient_training_vector[j] << " ";
         if (!(abs(coefficient_training_vector[j] - coefficient_reset_value) < tolerance)) {
             rebuild_for_lower_error = true;
         }
@@ -384,6 +399,7 @@ void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_colu
         }
         coefficient_training_vector[j] = coefficient_training_vector_at_j;
     }
+    //cout << "\n";
 
 
     if (rebuild_for_lower_error) {
@@ -391,9 +407,14 @@ void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_colu
         if (!set_learning_rate_manually) {
             if (is_right) {test_loops = 0;}
             if (test_loops > 25) {
-                learning_rate = learning_rate + .00015;
+                learning_rate = learning_rate + .00005;
                 test_loops = 0;}
             if (!is_good && (learning_rate > .0001) ) {learning_rate = learning_rate - .0001;}
+        } else {
+            if (test_loops > 25 && is_good) {
+                learning_rate = learning_rate + .0001;
+                test_loops = 0;}
+            else if (!is_good && (learning_rate > .0001)) {learning_rate = learning_rate - .0001;}
         }
         total_loop ++;
         if (total_running_loop > 6000) {
