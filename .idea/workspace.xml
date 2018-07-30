@@ -29,10 +29,23 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="136" column="62" selection-start-line="136" selection-start-column="62" selection-end-line="136" selection-end-column="62" />
+            <state relative-caret-position="78">
+              <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#3590#3626#0" />
+                <element signature="e#3697#4260#0" />
+                <element signature="e#2857#3640#0" />
+                <element signature="e#3642#4266#0" />
+                <element signature="e#4268#4717#0" />
+                <element signature="e#4719#5018#0" />
+                <element signature="e#8528#8786#1" />
+                <element signature="e#8802#9386#1" />
+                <element signature="e#8573#12298#0" />
+                <element signature="e#16045#16485#0" />
+                <element signature="e#10533#11591#0" />
+                <element signature="e#11271#11472#0" />
+                <element signature="e#11474#11622#0" />
               </folding>
             </state>
           </provider>
@@ -107,10 +120,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>split_testing_data</find>
-      <find>gradient_descent_min_cost</find>
-      <find>get_vector_slice</find>
-      <find>error_of_estimate</find>
       <find>print_matrix</find>
       <find>set_learn</find>
       <find>training</find>
@@ -137,6 +146,10 @@
       <find>set_learning_rate_man</find>
       <find>manually</find>
       <find>100,</find>
+      <find>training_example_length</find>
+      <find>my_main</find>
+      <find>standard_error</find>
+      <find>error_of_est</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -237,7 +250,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67410000" />
+    <option name="totallyTimeSpent" value="68776000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="15" y="75" width="1239" height="716" extended-state="0" />
@@ -284,7 +297,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/main.cpp</url>
-          <line>354</line>
+          <line>189</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
@@ -322,6 +335,19 @@
           <caret line="287" lean-forward="true" selection-start-line="273" selection-start-column="6" selection-end-line="287" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#3590#3626#0" />
+            <element signature="e#3697#4260#0" />
+            <element signature="e#2857#3640#0" />
+            <element signature="e#3642#4266#0" />
+            <element signature="e#4268#4717#0" />
+            <element signature="e#4719#5018#0" />
+            <element signature="e#8528#8786#1" />
+            <element signature="e#8802#9386#1" />
+            <element signature="e#8573#12298#0" />
+            <element signature="e#16045#16485#0" />
+            <element signature="e#10533#11591#0" />
+            <element signature="e#11271#11472#0" />
+            <element signature="e#11474#11622#0" />
           </folding>
         </state>
       </provider>
@@ -417,6 +443,19 @@
           <caret line="370" column="48" selection-start-line="370" selection-start-column="48" selection-end-line="370" selection-end-column="48" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#3590#3626#0" />
+            <element signature="e#3697#4260#0" />
+            <element signature="e#2857#3640#0" />
+            <element signature="e#3642#4266#0" />
+            <element signature="e#4268#4717#0" />
+            <element signature="e#4719#5018#0" />
+            <element signature="e#8528#8786#1" />
+            <element signature="e#8802#9386#1" />
+            <element signature="e#8573#12298#0" />
+            <element signature="e#16045#16485#0" />
+            <element signature="e#10533#11591#0" />
+            <element signature="e#11271#11472#0" />
+            <element signature="e#11474#11622#0" />
           </folding>
         </state>
       </provider>
@@ -451,6 +490,19 @@
           <caret line="287" lean-forward="true" selection-start-line="273" selection-start-column="6" selection-end-line="287" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#3590#3626#0" />
+            <element signature="e#3697#4260#0" />
+            <element signature="e#2857#3640#0" />
+            <element signature="e#3642#4266#0" />
+            <element signature="e#4268#4717#0" />
+            <element signature="e#4719#5018#0" />
+            <element signature="e#8528#8786#1" />
+            <element signature="e#8802#9386#1" />
+            <element signature="e#8573#12298#0" />
+            <element signature="e#16045#16485#0" />
+            <element signature="e#10533#11591#0" />
+            <element signature="e#11271#11472#0" />
+            <element signature="e#11474#11622#0" />
           </folding>
         </state>
       </provider>
@@ -545,10 +597,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="136" column="62" selection-start-line="136" selection-start-column="62" selection-end-line="136" selection-end-column="62" />
+        <state relative-caret-position="78">
+          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#3590#3626#0" />
+            <element signature="e#3697#4260#0" />
+            <element signature="e#2857#3640#0" />
+            <element signature="e#3642#4266#0" />
+            <element signature="e#4268#4717#0" />
+            <element signature="e#4719#5018#0" />
+            <element signature="e#8528#8786#1" />
+            <element signature="e#8802#9386#1" />
+            <element signature="e#8573#12298#0" />
+            <element signature="e#16045#16485#0" />
+            <element signature="e#10533#11591#0" />
+            <element signature="e#11271#11472#0" />
+            <element signature="e#11474#11622#0" />
           </folding>
         </state>
       </provider>
