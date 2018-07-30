@@ -142,7 +142,7 @@ void import_data() {
 
     vector<double> coefficient_training_vector = initialize_gradient_descent(100, data_matrix[0].size());
     vector<double> cost_vector = initialize_gradient_descent(100, data_matrix[0].size());
-    double learning_rate = .0035;
+    double learning_rate = .004;
     bool set_learning_rate_manuall = false;
     gradient_descent_min_cost(data_matrix, y_column, cost_vector, coefficient_training_vector, learning_rate, testing_matrix_data, y_vector_testing, set_learning_rate_manuall);
 
