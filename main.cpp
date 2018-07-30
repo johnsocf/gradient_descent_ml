@@ -68,7 +68,7 @@ vector<double> initialize_gradient_descent(int initial_values, int param_length)
 // ml algorithms
 vector<double>  hypothesis_linear_regression(vector<double> coefficient_training_vector, vector< vector<double> > data_matrix);
 void gradient_descent(int arg[]);
-void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_column, vector<double> cost_vector, vector<double> hypothesis_vector, double learning_rate, vector< vector<double> >testing_matrix_data, vector<double>y_vector_testing);
+void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_column, vector<double> cost_vector, vector<double> hypothesis_vector, double learning_rate, vector< vector<double> >testing_matrix_data, vector<double>y_vector_testing, bool set_learning_rate_manually);
 vector< vector<double> > split_testing_data_from_matrix(vector< vector<double> >& data_matrix);
 
 // ml algorithms multi features (takes matrix data, not just vectors)
@@ -134,7 +134,7 @@ void import_data() {
     // column to extract y vector
     int y_column = 2;
     //vector< vector<double> > data_matrix = build_matrix("bds.csv");
-    vector< vector<double> > data_matrix = build_matrix("test4.csv");
+    vector< vector<double> > data_matrix = build_matrix("test5.csv");
 
     vector< vector<double> > testing_matrix_data = split_testing_data_from_matrix(data_matrix);
     vector<double> y_vector_testing = get_vector_slice(testing_matrix_data, y_column);
@@ -143,7 +143,8 @@ void import_data() {
     vector<double> coefficient_training_vector = initialize_gradient_descent(100, data_matrix[0].size());
     vector<double> cost_vector = initialize_gradient_descent(100, data_matrix[0].size());
     double learning_rate = .004;
-    gradient_descent_min_cost(data_matrix, y_column, cost_vector, coefficient_training_vector, learning_rate, testing_matrix_data, y_vector_testing);
+    bool set_learning_rate_manuall = true;
+    gradient_descent_min_cost(data_matrix, y_column, cost_vector, coefficient_training_vector, learning_rate, testing_matrix_data, y_vector_testing, set_learning_rate_manuall);
 
     // import data via csv.
     // build matrix
@@ -154,40 +155,14 @@ vector< vector<double> > split_testing_data_from_matrix(vector< vector<double> >
     int m = data_matrix.size();
     int n = data_matrix[0].size();
     int set_deliminator = round(m * .75);
-    cout << "set_delim: " << set_deliminator << "\n";
-    cout << "m: " << m << "\n";
-    cout << "n: " << n << "\n";
-    cout << "data matrix: \n";
-    print_matrix(data_matrix);
-    cout << "---------------------\n";
     vector<double> v;
     vector< vector <double> > test_set;
     for (int i=set_deliminator; i<m; i++) {
         for (int column=0; column<n; column++) {
-            //cout << "i minus set delim " << i - set_deliminator << "\n";
             int row = i - set_deliminator;
-            //v.push_back(data_matrix[i][column]);
-
-            //test_set[row][column] = 1;
-            //data_matrix[i].erase(data_matrix[i].begin() + column);
         }
         test_set.push_back(data_matrix[i]);
-        //data_matrix.erase(data_matrix.begin() + 1);
-        //data_matrix[i].clear();
-        //data_matrix[i].erase(data_matrix[i].begin() + n-1);
     };
-//    for (int i=set_deliminator; i<m; i++) {
-//        //data_matrix.erase(data_matrix.begin() + i);
-//        //data_matrix[i].clear();
-//        //data_matrix[i].erase(data_matrix[i].begin() + n-1);
-//    };
-    cout << "---------------------\n";
-    cout << "data matrix: \n";
-    print_matrix(data_matrix);
-    cout << "---------------------\n";
-    cout << "test set: \n";
-    print_matrix(test_set);
-    cout << "---------------------\n";
     return test_set;
 }
 
@@ -359,7 +334,7 @@ void gradient_descent(int arg[]) {
     // repeat until convergence
 }
 
-void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_column, vector<double> cost_vector, vector<double> coefficient_training_vector, double learning_rate, vector< vector<double> > testing_matrix_data, vector<double>y_vector_testing) {
+void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_column, vector<double> cost_vector, vector<double> coefficient_training_vector, double learning_rate, vector< vector<double> > testing_matrix_data, vector<double>y_vector_testing, bool set_learning_rate_manually) {
     vector<double> y_vector = get_vector_slice(total_matrix, y_column);
     vector< vector<double> > data_matrix = get_matrix_input_data(total_matrix, y_column);
     vector<double> hypothesis_vector = hypothesis_linear_regression(coefficient_training_vector, data_matrix);
@@ -413,11 +388,13 @@ void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_colu
 
     if (rebuild_for_lower_error) {
         test_loops ++;
-        if (is_right) {test_loops = 0;}
-        if (test_loops > 25) {
-            learning_rate = learning_rate + .00015;
-            test_loops = 0;}
-        if (!is_good && (learning_rate > .0001)) {learning_rate = learning_rate - .0001;}
+        if (!set_learning_rate_manually) {
+            if (is_right) {test_loops = 0;}
+            if (test_loops > 25) {
+                learning_rate = learning_rate + .00015;
+                test_loops = 0;}
+            if (!is_good && (learning_rate > .0001) ) {learning_rate = learning_rate - .0001;}
+        }
         total_loop ++;
         if (total_running_loop > 6000) {
             print_linear_eq(coefficient_training_vector);
@@ -426,7 +403,7 @@ void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_colu
             return;
         }
         total_running_loop ++;
-        gradient_descent_min_cost(total_matrix, y_column, cost_vector, coefficient_training_vector, learning_rate, testing_matrix_data, y_vector_testing);
+        gradient_descent_min_cost(total_matrix, y_column, cost_vector, coefficient_training_vector, learning_rate, testing_matrix_data, y_vector_testing, set_learning_rate_manually);
 
     }
 
