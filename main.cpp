@@ -43,6 +43,8 @@ vector<double> get_vector_slice(vector<vector <double> > array, int column);
 vector< vector<double> > get_matrix_input_data(vector<vector <double> > array, int column);
 void separate_vector_from_matrix_by_column(vector< vector<double> > matrix, int column);
 void print_linear_eq(vector<double> coeff_vector);
+double calculate_standard_error_of_estimate(vector<double> fresh_test_data_matrix_y, vector<vector<double> > data_matrix, vector<double> linear_coefficients);
+
 
 // initialize structures
 void init_vector(int arg[], int length);
@@ -66,7 +68,8 @@ vector<double> initialize_gradient_descent(int initial_values, int param_length)
 // ml algorithms
 vector<double>  hypothesis_linear_regression(vector<double> coefficient_training_vector, vector< vector<double> > data_matrix);
 void gradient_descent(int arg[]);
-void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_column, vector<double> cost_vector, vector<double> hypothesis_vector, double learning_rate);
+void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_column, vector<double> cost_vector, vector<double> hypothesis_vector, double learning_rate, vector< vector<double> >testing_matrix_data, vector<double>y_vector_testing);
+vector< vector<double> > split_testing_data_from_matrix(vector< vector<double> >& data_matrix);
 
 // ml algorithms multi features (takes matrix data, not just vectors)
 
@@ -130,15 +133,62 @@ void import_data() {
 
     // column to extract y vector
     int y_column = 2;
+    //vector< vector<double> > data_matrix = build_matrix("bds.csv");
     vector< vector<double> > data_matrix = build_matrix("test4.csv");
+
+    vector< vector<double> > testing_matrix_data = split_testing_data_from_matrix(data_matrix);
+    vector<double> y_vector_testing = get_vector_slice(testing_matrix_data, y_column);
+
+
     vector<double> coefficient_training_vector = initialize_gradient_descent(100, data_matrix[0].size());
     vector<double> cost_vector = initialize_gradient_descent(100, data_matrix[0].size());
     double learning_rate = .004;
-    gradient_descent_min_cost(data_matrix, y_column, cost_vector, coefficient_training_vector, learning_rate);
+    gradient_descent_min_cost(data_matrix, y_column, cost_vector, coefficient_training_vector, learning_rate, testing_matrix_data, y_vector_testing);
 
     // import data via csv.
     // build matrix
     // build test sets
+}
+
+vector< vector<double> > split_testing_data_from_matrix(vector< vector<double> >& data_matrix) {
+    int m = data_matrix.size();
+    int n = data_matrix[0].size();
+    int set_deliminator = round(m * .75);
+    cout << "set_delim: " << set_deliminator << "\n";
+    cout << "m: " << m << "\n";
+    cout << "n: " << n << "\n";
+    cout << "data matrix: \n";
+    print_matrix(data_matrix);
+    cout << "---------------------\n";
+    vector<double> v;
+    vector< vector <double> > test_set;
+    for (int i=set_deliminator; i<m; i++) {
+        for (int column=0; column<n; column++) {
+            //cout << "i minus set delim " << i - set_deliminator << "\n";
+            int row = i - set_deliminator;
+            //v.push_back(data_matrix[i][column]);
+
+            //test_set[row][column] = 1;
+            //data_matrix[i].erase(data_matrix[i].begin() + column);
+        }
+        test_set.push_back(data_matrix[i]);
+        //data_matrix.erase(data_matrix.begin() + 1);
+        //data_matrix[i].clear();
+        //data_matrix[i].erase(data_matrix[i].begin() + n-1);
+    };
+//    for (int i=set_deliminator; i<m; i++) {
+//        //data_matrix.erase(data_matrix.begin() + i);
+//        //data_matrix[i].clear();
+//        //data_matrix[i].erase(data_matrix[i].begin() + n-1);
+//    };
+    cout << "---------------------\n";
+    cout << "data matrix: \n";
+    print_matrix(data_matrix);
+    cout << "---------------------\n";
+    cout << "test set: \n";
+    print_matrix(test_set);
+    cout << "---------------------\n";
+    return test_set;
 }
 
 void separate_vector_from_matrix_by_column(vector< vector<double> > matrix, int column) {
@@ -198,8 +248,35 @@ vector<double> get_vector_slice(vector<vector <double> > array, int column) {
     for (int i=0; i<array.size(); i++) {
         result.push_back(array[i][column]);
         array[i].erase(array[i].begin() + 2);
+
     };
     return result;
+}
+
+double calculate_standard_error_of_estimate(vector<double> fresh_test_data_matrix_y, vector<vector<double> > data_matrix, vector<double> linear_coefficients) {
+    int m = data_matrix.size();
+    int n = linear_coefficients.size();
+    string equation = "";
+    int standard_error_of_estimate = 0;
+    for (int row=0; row < m; row++) {
+        double linear_eq_y = 0;
+        for (int column=0; column < n; column++) {
+            //cout << "linear eq: " << linear_coefficients[column] * data_matrix[row][column] << "\n";
+            //cout << "coeff: " << linear_coefficients[column] << "\n";
+
+            if (column == 0) {
+                cout << "coeff: " << linear_coefficients[column] << "\n";
+                linear_eq_y += linear_coefficients[column];
+            } else {
+                cout << "data: " << data_matrix[row][column-1] << "\n";
+                cout << "coeff: " << linear_coefficients[column] << "\n";
+                linear_eq_y += linear_coefficients[column] * data_matrix[row][column-1];
+            }
+        }
+        cout << "error: " << pow((fresh_test_data_matrix_y[row] - linear_eq_y), 2) << "\n";
+        standard_error_of_estimate += pow((fresh_test_data_matrix_y[row] - linear_eq_y), 2);
+    }
+    return standard_error_of_estimate;
 }
 
 
@@ -282,7 +359,7 @@ void gradient_descent(int arg[]) {
     // repeat until convergence
 }
 
-void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_column, vector<double> cost_vector, vector<double> coefficient_training_vector, double learning_rate) {
+void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_column, vector<double> cost_vector, vector<double> coefficient_training_vector, double learning_rate, vector< vector<double> > testing_matrix_data, vector<double>y_vector_testing) {
     vector<double> y_vector = get_vector_slice(total_matrix, y_column);
     vector< vector<double> > data_matrix = get_matrix_input_data(total_matrix, y_column);
     vector<double> hypothesis_vector = hypothesis_linear_regression(coefficient_training_vector, data_matrix);
@@ -344,10 +421,12 @@ void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_colu
         total_loop ++;
         if (total_running_loop > 6000) {
             print_linear_eq(coefficient_training_vector);
+            double error_calculated = calculate_standard_error_of_estimate(y_vector_testing, testing_matrix_data, coefficient_training_vector);
+            cout << "standard error of estimate: " << error_calculated << "\n";
             return;
         }
         total_running_loop ++;
-        gradient_descent_min_cost(total_matrix, y_column, cost_vector, coefficient_training_vector, learning_rate);
+        gradient_descent_min_cost(total_matrix, y_column, cost_vector, coefficient_training_vector, learning_rate, testing_matrix_data, y_vector_testing);
 
     }
 

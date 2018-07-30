@@ -29,8 +29,8 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="370" column="48" selection-start-line="370" selection-start-column="48" selection-end-line="370" selection-end-column="48" />
+            <state relative-caret-position="285">
+              <caret line="274" column="9" lean-forward="true" selection-start-line="274" selection-start-column="9" selection-end-line="274" selection-end-column="9" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -41,8 +41,8 @@
       <file leaf-file-name="test4.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test4.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1800">
-              <caret line="120" column="8" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="8" />
+            <state relative-caret-position="180">
+              <caret line="50" column="6" selection-start-line="50" selection-start-column="4" selection-end-line="50" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -111,26 +111,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>y_column</find>
-      <find>get_Vector</find>
-      <find>print_matri</find>
-      <find>get_matrix</find>
-      <find>get_vector_slice</find>
-      <find>get_matrix_input</find>
-      <find>coeff</find>
-      <find>print_matrix</find>
-      <find>test_loops</find>
-      <find>coeff v</find>
-      <find>learnin</find>
-      <find>main</find>
-      <find>learning_rate</find>
-      <find>learning_Rate</find>
-      <find>gradient_descent_min</find>
-      <find>* doj</find>
-      <find>learning_rate =</find>
-      <find>learning_rate =</find>
-      <find>.000</find>
-      <find>.00</find>
       <find>is_good</find>
       <find>is_right</find>
       <find>&gt;</find>
@@ -141,6 +121,26 @@
       <find>total_running</find>
       <find>cout</find>
       <find>print_</find>
+      <find>equation</find>
+      <find>test</find>
+      <find>main</find>
+      <find>get_</find>
+      <find>data_matrix[i][column]</find>
+      <find>[i][column]</find>
+      <find>of_estimate</find>
+      <find>calculate_stand</find>
+      <find>gradient_Descent_min_cost</find>
+      <find>learning_rate)</find>
+      <find>error</find>
+      <find>gradient</find>
+      <find>split_testing_Data</find>
+      <find>push_Back</find>
+      <find>split_testing_data</find>
+      <find>min_cost</find>
+      <find>gradient_descent_min_cost</find>
+      <find>get_vector_slice</find>
+      <find>error_of_estimate</find>
+      <find>38</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -170,10 +170,10 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="16" />
-    <option name="y" value="141" />
-    <option name="width" value="1024" />
-    <option name="height" value="621" />
+    <option name="x" value="15" />
+    <option name="y" value="75" />
+    <option name="width" value="1239" />
+    <option name="height" value="716" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -241,17 +241,17 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53995000" />
+    <option name="totallyTimeSpent" value="62395000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="16" y="141" width="1024" height="621" extended-state="0" />
+    <frame x="15" y="75" width="1239" height="716" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14356929" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.104269296" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" visible="true" weight="0.001908397" />
+      <window_info anchor="bottom" id="Messages" sideWeight="0.49917898" visible="true" weight="0.0016155089" />
       <window_info anchor="bottom" id="CMake" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" sideWeight="0.500821" side_tool="true" visible="true" weight="0.0016155089" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -261,7 +261,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20313725" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14356929" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -288,7 +288,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/main.cpp</url>
-          <line>287</line>
+          <line>364</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
@@ -419,6 +419,135 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
           <caret line="370" column="48" selection-start-line="370" selection-start-column="48" selection-end-line="370" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bike-sharing-dataset.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/b-s-ds-attributes.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/temp_x_rental_num_y_simple.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="12" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="287" lean-forward="true" selection-start-line="273" selection-start-column="6" selection-end-line="287" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bike-sharing-dataset.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/b-s-ds-attributes.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/temp_x_rental_num_y_simple.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="12" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4080">
+          <caret line="272" column="54" selection-start-line="272" selection-start-column="54" selection-end-line="272" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bike-sharing-dataset.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/b-s-ds-attributes.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/temp_x_rental_num_y_simple.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/w_c_data_set.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test2.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test1.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test3.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test5.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="1330" column="12" selection-start-line="1330" selection-start-column="12" selection-end-line="1330" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test4.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="50" column="6" selection-start-line="50" selection-start-column="4" selection-end-line="50" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="274" column="9" lean-forward="true" selection-start-line="274" selection-start-column="9" selection-end-line="274" selection-end-column="9" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
