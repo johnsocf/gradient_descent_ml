@@ -12,7 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1928409-053f-4c51-85a5-799e2a062a51" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/main" beforeDir="false" afterPath="$PROJECT_DIR$/main" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -25,51 +25,40 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="78">
-              <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+            <state relative-caret-position="120">
+              <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
-                <element signature="e#3590#3626#0" />
-                <element signature="e#3697#4260#0" />
-                <element signature="e#2857#3640#0" />
-                <element signature="e#3642#4266#0" />
-                <element signature="e#4268#4717#0" />
-                <element signature="e#4719#5018#0" />
-                <element signature="e#8528#8786#1" />
-                <element signature="e#8802#9386#1" />
-                <element signature="e#8573#12298#0" />
-                <element signature="e#16045#16485#0" />
-                <element signature="e#10533#11591#0" />
-                <element signature="e#11271#11472#0" />
-                <element signature="e#11474#11622#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test6.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test6.csv">
-          <provider selected="true" editor-type-id="text-editor" />
+      <file leaf-file-name="bds.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bds.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-180" />
+          </provider>
         </entry>
       </file>
-      <file leaf-file-name="test5.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test5.csv">
+      <file leaf-file-name="test1.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test1.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+            <state relative-caret-position="75">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test4.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test4.csv">
+      <file leaf-file-name="bike-sharing-dataset.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bike-sharing-dataset.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="50" column="6" selection-start-line="50" selection-start-column="4" selection-end-line="50" selection-end-column="6" />
+            <state relative-caret-position="105">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -86,8 +75,8 @@
       <file leaf-file-name="temp_x_rental_num_y_simple.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/temp_x_rental_num_y_simple.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+            <state relative-caret-position="345">
+              <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -97,32 +86,10 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="test1.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test1.csv">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="test3.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test3.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test2.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test2.csv">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>print_matrix</find>
-      <find>set_learn</find>
-      <find>training</find>
       <find>learning_Rate</find>
       <find>learning_Rate =</find>
       <find>main</find>
@@ -150,6 +117,9 @@
       <find>my_main</find>
       <find>standard_error</find>
       <find>error_of_est</find>
+      <find>abs</find>
+      <find>calculate_standard_error</find>
+      <find>print_matlab_</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -179,10 +149,10 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="15" />
-    <option name="y" value="75" />
-    <option name="width" value="1239" />
-    <option name="height" value="716" />
+    <option name="x" value="-1997" />
+    <option name="y" value="409" />
+    <option name="width" value="1669" />
+    <option name="height" value="903" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -195,7 +165,7 @@
           <expand>
             <path>
               <item name="matrices_ml" type="b2602c69:ProjectViewProjectNode" />
-              <item name="matrices_ml" type="462c0819:PsiDirectoryNode" />
+              <item name="gradient_descent_ml" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -250,38 +220,39 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68776000" />
+    <option name="totallyTimeSpent" value="69676000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="15" y="75" width="1239" height="716" extended-state="0" />
+    <frame x="-1997" y="409" width="1669" height="903" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.104269296" />
-      <window_info anchor="bottom" id="TODO" order="14" />
-      <window_info anchor="bottom" id="Messages" order="0" sideWeight="0.49917898" visible="true" weight="0.0016155089" />
-      <window_info anchor="bottom" id="CMake" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.500821" side_tool="true" weight="0.0016155089" />
-      <window_info anchor="bottom" id="Run" order="1" />
-      <window_info anchor="bottom" id="Version Control" order="6" />
-      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
-      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22648293" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" weight="0.32894737" />
+      <window_info anchor="bottom" id="CMake" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.14234017" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Run" order="5" />
-      <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.14356929" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="13" />
-      <window_info anchor="bottom" id="Find" order="3" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
-      <window_info anchor="bottom" id="Terminal" order="15" />
-      <window_info anchor="bottom" id="Event Log" order="16" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
       <window_info anchor="bottom" id="Version Control" order="17" />
+      <window_info anchor="bottom" id="Run" order="5" />
+      <window_info anchor="bottom" id="Terminal" order="15" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="0" sideWeight="0.49917898" visible="true" weight="0.0016155089" />
       <window_info anchor="bottom" id="Message" order="2" />
+      <window_info anchor="bottom" id="Event Log" order="16" side_tool="true" />
+      <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="3" />
       <window_info anchor="bottom" id="CMake" order="18" />
       <window_info id="Favorites" order="5" side_tool="true" />
     </layout>
@@ -297,7 +268,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/main.cpp</url>
-          <line>189</line>
+          <line>190</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
@@ -305,6 +276,50 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/b-s-ds-attributes.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/temp_x_rental_num_y_simple.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/w_c_data_set.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test2.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test1.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test3.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="282" column="41" lean-forward="true" selection-start-line="282" selection-start-column="41" selection-end-line="282" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -335,19 +350,6 @@
           <caret line="287" lean-forward="true" selection-start-line="273" selection-start-column="6" selection-end-line="287" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
-            <element signature="e#3590#3626#0" />
-            <element signature="e#3697#4260#0" />
-            <element signature="e#2857#3640#0" />
-            <element signature="e#3642#4266#0" />
-            <element signature="e#4268#4717#0" />
-            <element signature="e#4719#5018#0" />
-            <element signature="e#8528#8786#1" />
-            <element signature="e#8802#9386#1" />
-            <element signature="e#8573#12298#0" />
-            <element signature="e#16045#16485#0" />
-            <element signature="e#10533#11591#0" />
-            <element signature="e#11271#11472#0" />
-            <element signature="e#11474#11622#0" />
           </folding>
         </state>
       </provider>
@@ -443,19 +445,6 @@
           <caret line="370" column="48" selection-start-line="370" selection-start-column="48" selection-end-line="370" selection-end-column="48" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
-            <element signature="e#3590#3626#0" />
-            <element signature="e#3697#4260#0" />
-            <element signature="e#2857#3640#0" />
-            <element signature="e#3642#4266#0" />
-            <element signature="e#4268#4717#0" />
-            <element signature="e#4719#5018#0" />
-            <element signature="e#8528#8786#1" />
-            <element signature="e#8802#9386#1" />
-            <element signature="e#8573#12298#0" />
-            <element signature="e#16045#16485#0" />
-            <element signature="e#10533#11591#0" />
-            <element signature="e#11271#11472#0" />
-            <element signature="e#11474#11622#0" />
           </folding>
         </state>
       </provider>
@@ -490,19 +479,6 @@
           <caret line="287" lean-forward="true" selection-start-line="273" selection-start-column="6" selection-end-line="287" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
-            <element signature="e#3590#3626#0" />
-            <element signature="e#3697#4260#0" />
-            <element signature="e#2857#3640#0" />
-            <element signature="e#3642#4266#0" />
-            <element signature="e#4268#4717#0" />
-            <element signature="e#4719#5018#0" />
-            <element signature="e#8528#8786#1" />
-            <element signature="e#8802#9386#1" />
-            <element signature="e#8573#12298#0" />
-            <element signature="e#16045#16485#0" />
-            <element signature="e#10533#11591#0" />
-            <element signature="e#11271#11472#0" />
-            <element signature="e#11474#11622#0" />
           </folding>
         </state>
       </provider>
@@ -557,8 +533,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/temp_x_rental_num_y_simple.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+        <state relative-caret-position="345">
+          <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -569,7 +545,11 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/test1.csv">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test5.csv">
       <provider selected="true" editor-type-id="text-editor">
@@ -595,25 +575,17 @@
     <entry file="file://$PROJECT_DIR$/test6.csv">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/bds.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-180" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+        <state relative-caret-position="120">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
-            <element signature="e#3590#3626#0" />
-            <element signature="e#3697#4260#0" />
-            <element signature="e#2857#3640#0" />
-            <element signature="e#3642#4266#0" />
-            <element signature="e#4268#4717#0" />
-            <element signature="e#4719#5018#0" />
-            <element signature="e#8528#8786#1" />
-            <element signature="e#8802#9386#1" />
-            <element signature="e#8573#12298#0" />
-            <element signature="e#16045#16485#0" />
-            <element signature="e#10533#11591#0" />
-            <element signature="e#11271#11472#0" />
-            <element signature="e#11474#11622#0" />
           </folding>
         </state>
       </provider>

@@ -6,6 +6,7 @@
 #include <string>
 #include <vector>
 #include <math.h>
+#include <cmath>
 
 using namespace std;
 
@@ -42,7 +43,7 @@ vector<double>  hypothesis_linear_regression(vector<double> coefficient_training
 void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_column, vector<double> cost_vector, vector<double> hypothesis_vector, double learning_rate, vector< vector<double> >testing_matrix_data, vector<double>y_vector_testing, bool set_learning_rate_manually);
 vector< vector<double> > split_testing_data_from_matrix(vector< vector<double> >& data_matrix);
 double calculate_standard_error_of_estimate(vector<double> fresh_test_data_matrix_y, vector<vector<double> > data_matrix, vector<double> linear_coefficients);
-
+string print_matlab_script_queues(vector<double> coefficient_training_vector);
 // dev helpers
 void print_matrix(vector< vector<double> > array);
 void print_vector(vector<double> my_vector);
@@ -258,6 +259,9 @@ void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_colu
             print_linear_eq(coefficient_training_vector);
             double error_calculated = calculate_standard_error_of_estimate(y_vector_testing, testing_matrix_data, coefficient_training_vector);
             cout << "standard error of estimate: " << error_calculated << "\n";
+            //string matlab_script = print_matlab_script_queues(coefficient_training_vector);
+            cout << "the matlab commands to depict this graphically are: \n";
+            //cout << matlab_script <<"\n";
             return;
         }
         total_running_loop ++;
@@ -265,6 +269,11 @@ void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_colu
 
     }
 
+}
+
+string print_matlab_script_queues(vector<double> coefficient_training_vector) {
+    string string_for_matlab_graph = "";
+    return string_for_matlab_graph;
 }
 
 void print_linear_eq(vector<double> coeff_vector) {
