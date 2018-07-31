@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/cat/Desktop/CSCI_2270/gradient_descent_ml/main.cpp
+iostream
+-
+iomanip
+-
+array
+-
+fstream
+-
+sstream
+-
+string
+-
+vector
+-
+
