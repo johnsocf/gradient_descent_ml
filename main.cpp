@@ -40,10 +40,10 @@ vector<double> initialize_gradient_descent(int initial_values, int param_length)
 
 // ml algorithms
 vector<double>  hypothesis_linear_regression(vector<double> coefficient_training_vector, vector< vector<double> > data_matrix);
-void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_column, vector<double> cost_vector, vector<double> hypothesis_vector, double learning_rate, vector< vector<double> >testing_matrix_data, vector<double>y_vector_testing, bool set_learning_rate_manually);
+void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_column, vector<double> cost_vector, vector<double> hypothesis_vector, double learning_rate, vector< vector<double> >testing_matrix_data, vector<double>y_vector_testing, bool set_learning_rate_manually, int initial_data_size);
 vector< vector<double> > split_testing_data_from_matrix(vector< vector<double> >& data_matrix);
 double calculate_standard_error_of_estimate(vector<double> fresh_test_data_matrix_y, vector<vector<double> > data_matrix, vector<double> linear_coefficients);
-string print_matlab_script_queues(string linear_equation, vector< vector<double> > total_matrix, vector<double> coefficient_training_vector);
+string print_matlab_script_queues(string linear_equation, int total_matrix_size, vector<double> coefficient_training_vector);
 // dev helpers
 void print_matrix(vector< vector<double> > array);
 void print_vector(vector<double> my_vector);
@@ -63,6 +63,7 @@ void import_data() {
     // column to extract y vector
     int y_column = 2;
     vector< vector<double> > data_matrix = build_matrix("bds_edited.csv");
+    int initial_data_matrix_size = data_matrix.size();
     //vector< vector<double> > data_matrix = build_matrix("test6.csv");
 
     vector< vector<double> > testing_matrix_data = split_testing_data_from_matrix(data_matrix);
@@ -80,7 +81,7 @@ void import_data() {
     // for test4.csv:
     // double learning_rate = .003;
     bool set_learning_rate_manually = false;
-    gradient_descent_min_cost(data_matrix, y_column, cost_vector, coefficient_training_vector, learning_rate, testing_matrix_data, y_vector_testing, set_learning_rate_manually);
+    gradient_descent_min_cost(data_matrix, y_column, cost_vector, coefficient_training_vector, learning_rate, testing_matrix_data, y_vector_testing, set_learning_rate_manually, initial_data_matrix_size);
 
 }
 
@@ -191,7 +192,7 @@ vector<double>  hypothesis_linear_regression(vector<double> coefficient_training
     return hypothesis;
 }
 
-void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_column, vector<double> cost_vector, vector<double> coefficient_training_vector, double learning_rate, vector< vector<double> > testing_matrix_data, vector<double>y_vector_testing, bool set_learning_rate_manually) {
+void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_column, vector<double> cost_vector, vector<double> coefficient_training_vector, double learning_rate, vector< vector<double> > testing_matrix_data, vector<double>y_vector_testing, bool set_learning_rate_manually, int initial_data_size) {
     vector<double> y_vector = get_vector_slice(total_matrix, y_column);
     vector< vector<double> > data_matrix = get_matrix_input_data(total_matrix, y_column);
     vector<double> hypothesis_vector = hypothesis_linear_regression(coefficient_training_vector, data_matrix);
@@ -271,21 +272,20 @@ void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_colu
             string linear_eq = print_linear_eq(coefficient_training_vector);
             double error_calculated = calculate_standard_error_of_estimate(y_vector_testing, testing_matrix_data, coefficient_training_vector);
             cout << "standard error of estimate: " << error_calculated << "\n";
-            string matlab_script = print_matlab_script_queues(linear_eq, total_matrix, coefficient_training_vector);
+            string matlab_script = print_matlab_script_queues(linear_eq, initial_data_size, coefficient_training_vector);
             cout << "the matlab commands to depict this graphically are: \n";
             cout << matlab_script <<"\n";
             return;
         }
         total_running_loop ++;
-        gradient_descent_min_cost(total_matrix, y_column, cost_vector, coefficient_training_vector, learning_rate, testing_matrix_data, y_vector_testing, set_learning_rate_manually);
+        gradient_descent_min_cost(total_matrix, y_column, cost_vector, coefficient_training_vector, learning_rate, testing_matrix_data, y_vector_testing, set_learning_rate_manually, initial_data_size);
 
     }
 
 }
 
-string print_matlab_script_queues(string linear_equation, vector< vector<double> > total_matrix, vector<double> coefficient_training_vector) {
+string print_matlab_script_queues(string linear_equation, int total_matrix_size, vector<double> coefficient_training_vector) {
 
-    int length = total_matrix.size();
     int coeff_length = coefficient_training_vector.size() - 1;
 
     string string_for_matlab_graph =
@@ -297,8 +297,8 @@ string print_matlab_script_queues(string linear_equation, vector< vector<double>
     "o1 = data(:,1) \n"
     "o2 = data(:,2) \n"
     //todo: these need to access the data
-    "x = [1:" + to_string(length) + "]' \n"
-    "z = [2:" + to_string(length) + "]' \n"
+    "x = [1:" + to_string(total_matrix_size) + "]' \n"
+    "z = [2:" + to_string(total_matrix_size) + "]' \n"
 // build y2 prediction vector to map against actual values.
 
    + linear_equation +  "\n"
