@@ -32,7 +32,7 @@ void import_data();
 vector< vector<double> > build_matrix(string file_name);
 vector<double> get_vector_slice(vector<vector <double> > array, int column);
 vector< vector<double> > get_matrix_input_data(vector<vector <double> > array, int column);
-void print_linear_eq(vector<double> coeff_vector);
+string print_linear_eq(vector<double> coeff_vector);
 
 
 // initialize supervised learning algorithm
@@ -43,7 +43,7 @@ vector<double>  hypothesis_linear_regression(vector<double> coefficient_training
 void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_column, vector<double> cost_vector, vector<double> hypothesis_vector, double learning_rate, vector< vector<double> >testing_matrix_data, vector<double>y_vector_testing, bool set_learning_rate_manually);
 vector< vector<double> > split_testing_data_from_matrix(vector< vector<double> >& data_matrix);
 double calculate_standard_error_of_estimate(vector<double> fresh_test_data_matrix_y, vector<vector<double> > data_matrix, vector<double> linear_coefficients);
-string print_matlab_script_queues(vector<double> coefficient_training_vector);
+string print_matlab_script_queues(string linear_equation, vector< vector<double> > total_matrix, vector<double> coefficient_training_vector);
 // dev helpers
 void print_matrix(vector< vector<double> > array);
 void print_vector(vector<double> my_vector);
@@ -199,6 +199,9 @@ void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_colu
     print_vector(coefficient_training_vector);
     double m = data_matrix.size();
     int n = coefficient_training_vector.size();
+    cout << "m" << m << "\n";
+    cout << "n" << n << "\n";
+    cout << "total size" << total_matrix.size() << "\n";
     int tolerance = .3;
     bool this_is_inf = false;
     bool keep_going = false;
@@ -264,13 +267,13 @@ void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_colu
         }
         total_loop ++;
         cout << "total run loop" << total_running_loop << "\n";
-        if (total_running_loop > 6800) {
-            print_linear_eq(coefficient_training_vector);
+        if (total_running_loop > 6000) {
+            string linear_eq = print_linear_eq(coefficient_training_vector);
             double error_calculated = calculate_standard_error_of_estimate(y_vector_testing, testing_matrix_data, coefficient_training_vector);
             cout << "standard error of estimate: " << error_calculated << "\n";
-            //string matlab_script = print_matlab_script_queues(coefficient_training_vector);
+            string matlab_script = print_matlab_script_queues(linear_eq, total_matrix, coefficient_training_vector);
             cout << "the matlab commands to depict this graphically are: \n";
-            //cout << matlab_script <<"\n";
+            cout << matlab_script <<"\n";
             return;
         }
         total_running_loop ++;
@@ -280,14 +283,44 @@ void gradient_descent_min_cost(vector< vector<double> > total_matrix, int y_colu
 
 }
 
-string print_matlab_script_queues(vector<double> coefficient_training_vector) {
-    string string_for_matlab_graph = "";
+string print_matlab_script_queues(string linear_equation, vector< vector<double> > total_matrix, vector<double> coefficient_training_vector) {
+
+    int length = total_matrix.size();
+    int coeff_length = coefficient_training_vector.size() - 1;
+
+    string string_for_matlab_graph =
+    "load file.csv \n"
+     "y = file(:, end) \n"
+    "data = file(:,1:" + to_string(coeff_length) + ") \n"
+// build vectors of each column to then build prediction vector based on linear eq
+// that we generated.
+    "o1 = data(:,1) \n"
+    "o2 = data(:,2) \n"
+    //todo: these need to access the data
+    "x = [1:" + to_string(length) + "]' \n"
+    "z = [2:" + to_string(length) + "]' \n"
+// build y2 prediction vector to map against actual values.
+
+   + linear_equation +  "\n"
+// generate x vector for each item in set. (each row)
+// and transpose
+//Ending value based on length of items in matrix
+
+    "plot (x, data, 'x') \n"
+    "hold on \n" +
+// create vectors for x and z from data set.
+//    "y – will be actual points \n"
+    "plot (x,y, 'ko', 'lineWidth', 1) \n"
+    "plot (x,y2, 'c', 'lineWidth', 3) \n"
+//    "the y1 will remain a line. \n"
+    "plot (x,y2) \n";
+
     return string_for_matlab_graph;
 }
 
-void print_linear_eq(vector<double> coeff_vector) {
+string print_linear_eq(vector<double> coeff_vector) {
     int n = coeff_vector.size();
-    string alphabet_vars[] = {"y", "x", "z", "a", "b", "c"};
+    string alphabet_vars[] = {"y2", "o1", "o2", "a", "b", "c"};
     string equation = "";
     for (int row=0; row < n; row++) {
 
@@ -296,11 +329,12 @@ void print_linear_eq(vector<double> coeff_vector) {
                 equation += alphabet_vars[row] + " = " + to_string((int)round(coeff_vector[row]));
                 break;
             default:
-                equation += " + " + to_string((int)round(coeff_vector[row])) + "" + alphabet_vars[row];
+                equation += " + " + to_string((int)round(coeff_vector[row])) + "*" + alphabet_vars[row];
         }
 
     }
     cout << "the machine learned equation is: \n" << equation << ".  happy linear predicting!\n";
+    return equation;
 }
 
 double calculate_standard_error_of_estimate(vector<double> fresh_test_data_matrix_y, vector<vector<double> > data_matrix, vector<double> linear_coefficients) {
